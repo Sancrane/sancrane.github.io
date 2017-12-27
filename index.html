@@ -1,0 +1,643 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>sanc7ane&#39;blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="sanc7ane">
+    
+
+    
+    <meta property="og:type" content="website">
+<meta property="og:title" content="sanc7ane&#39;blog">
+<meta property="og:url" content="www.sancrane.top/index.html">
+<meta property="og:site_name" content="sanc7ane&#39;blog">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sanc7ane&#39;blog">
+
+    
+    <link rel="alternative" href="/atom.xml" title="sanc7ane&#39;blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="sanc7ane&#39;blog" title="sanc7ane&#39;blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="sanc7ane&#39;blog">sanc7ane&#39;blog</a></h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:www.sancrane.top">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main">
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/11/18/bugkuweb3/" title="" itemprop="url"></a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
+		
+  <p class="article-time">
+    <time datetime="2017-11-18T10:46:36.000Z" itemprop="datePublished"> Published 2017-11-18</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>#</p>
+<p>s=’&#75;&#69;&#89;&#123;&#74;&#50;&#115;&#97;&#52;&#50;&#97;&#104;&#74;&#75;&#45;&#72;&#83;&#49;&#49;&#73;&#73;&#73;&amp;#125’<br>key=s.split(‘;’)<br>flag=’’<br>for i in key:<br>    flag+=chr(int(i[2:]))<br>print flag</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/11/13/一个RSA入门总结/" title="RSA入门总结" itemprop="url">RSA入门总结</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
+		
+  <p class="article-time">
+    <time datetime="2017-11-12T19:14:43.000Z" itemprop="datePublished"> Published 2017-11-13</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><h3 id="好好学数学啊小同志！"><a href="#好好学数学啊小同志！" class="headerlink" title="好好学数学啊小同志！"></a>好好学数学啊小同志！</h3><p>…先简单说一下rsa相关的东西。</p>
+<p>RSA 算法的可靠性由其极大整数因数分解的难度决定。</p>
+<p>也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。</p>
+<p>在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（<del>只要我跑的足够快，寂寞就追不上我（闭嘴）</del>)</p>
+<p>最近稍微看了一下相关的东西。然后整理了一下www</p>
+<p>a^b是a的b次方啦…忘了应该怎么打出来了orz…</p>
+<pre><code>RSA算法涉及到的参数：
+
+p : 大质数p
+q : 大质数q
+n : n=p*q
+
+欧拉函数：
+φ(n) = φ(p) * φ(q) = (p − 1)(q − 1) = n − (p + q − 1)
+
+e : encryption key (public key) (又称加密指数)
+
+d : decryption key (private key) e对于φ(n)的模反元素即e模φ(n)的逆元
+
+m：message（m &lt; n），明文。
+
+c : ciphertext，c≡m^e(mod n),即密文
+</code></pre><p>加密过程：</p>
+<p><strong>1.随机选择两个不相等的质数p和q。</strong></p>
+<p><strong>2.计算p和q的乘积n。</strong></p>
+<p>n的长度就是密钥长度。</p>
+<p>如n为3233写成二进制是110010100001，一共有12位，所以这个密钥就是12位。（实际应用中，RSA密钥一般是1024位，重要场合则为2048位。）</p>
+<p><strong>3.计算n的欧拉函数φ(n)</strong></p>
+<p><strong>φ(n) = (p-1)(q-1)</strong></p>
+<p><strong>4.随机选择一个整数e</strong>，条件是<strong>1&lt; e &lt; φ(n)</strong>，且e与φ(n) <strong>互质</strong>，将e作为公钥。</p>
+<p><strong>5.计算e关于φ(n)的模反元素d，作为私钥。</strong></p>
+<p>计算过程：</p>
+<p>模反元素即模逆元（参考离散数学或者信安数学基础或者百科学习）</p>
+<p>简单来说，就是一个整数d可以使ed乘积被φ(n)除的余数为1：<br><strong>ed ≡ 1 (mod φ(n))</strong>（也就是ed％φ(n)＝1）<br>即求解</p>
+<p><strong>ed＋φ(n)x＝1</strong>（x未知，但是求得e和φ(n)就可以通过扩展欧几里得算法得到d的值，具体可以参考最底下ctf中rsa题目解析第二个链接。）</p>
+<p>公开e，保留d。</p>
+<p><strong>公钥为(n,e)，私钥为(n,d)  </strong></p>
+<p>针对明文M，进行加密：C=(M^e)%n，得到的C即为密文</p>
+<p>针对密文C，进行解密，M=(C^d)%n，得到的M即为明文</p>
+<p>而在ctf比赛里，一般会给出n值和e值，然后可以在<strong><a href="http://factordb.com/" target="_blank" rel="noopener">http://factordb.com/</a></strong>或者大质数分解工具里因式分解，得到p，q。然后通过p，q算出φ(n）。通过φ(n）和e，算出d。</p>
+<p>jarvis oj一道简单的rsa：veryeasyrsa</p>
+<pre><code>已知RSA公钥生成参数：
+
+p = 3487583947589437589237958723892346254777
+q = 8767867843568934765983476584376578389
+e = 65537
+
+求d 
+</code></pre><p>py脚本如下。<br>modinv函数就是求模逆的函数。</p>
+<pre><code>import math
+
+
+def egcd(a, b):
+     if a == 0:
+         return (b, 0, 1)
+     else:
+         g, y, x = egcd(b % a, a)
+         return (g, x - (b // a) * y, y)
+
+
+def modinv(a, m):
+    g, x, y = egcd(a, m)
+    if g != 1:
+        raise Exception(&apos;modular inverse does not    exist&apos;)
+    else:
+        return x % m
+
+
+p = 3487583947589437589237958723892346254777
+q = 8767867843568934765983476584376578389
+e = 65537
+d = modinv(e, (p - 1) * (q - 1))
+print d
+</code></pre><p>明文就是m＝pow(c,d,n)</p>
+<p>（ps.当e＝1时，c≡ m mod n，因为n远大于c，m＝c.也就是明文密文是一样的…实际上没加密啦…）</p>
+<p>有的时候，会出现多个n的公约数分解.</p>
+<p>比如给了2个n（n1，n2），q的值相同（而p不同所以有多个n），e的值和密文c。py脚本如下：</p>
+<pre><code>def gcd(a, b):
+    if a &lt; b:
+        a, b = b, a
+
+    while b != 0:
+        temp = a % b
+        a = b
+        b = temp
+
+    return a
+
+
+
+n1=。。。
+n2=。。。
+
+p = gcd(n1,n2)
+
+print p,&quot;\n\n&quot;,n1 // p
+</code></pre><p>就可以算出<strong>q</strong>的值啦。</p>
+<p>也就是最后输出的<strong>n1除以p</strong>。</p>
+<p>老方法，知道p，q就知道φ(n）。通过φ(n）和e，算出d。</p>
+<p>其他：</p>
+<p>一般题目不会直接给参数，可能给比如pem文件（后缀.enc/.pem），可以通过linux下openssl命令提取。linux下命令：</p>
+<p><strong>openssl rsa -pubin -text -modulus -in warmup -in 喵.pem</strong></p>
+<p>和</p>
+<p><strong>openssl   rsautl -encrypt -in FLAG -inkey public.pem -pubin -out 喵.enc</strong></p>
+<p>在p，q的取值差异过大，或者p，q的取值过于相近的时候，Format算法与Pollard rho算法都可以很快将n分解成功。</p>
+<p>（利用开源项目<strong>yafu</strong>可以自动化实现，语句直接：<strong>factor(n)</strong></p>
+<p>也可以通过linux下的openssl命令提取。</p>
+<p>RSA入门级别的大概就这样…<br>以后大概会补充后续？…</p>
+<p>学习了之后的感受是…<br>我，我以后一定好好听数学课！（ry</p>
+<pre><code>具体算法解析：
+   http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html
+
+关于rsa公钥指数：
+   http://blog.csdn.net/hherima/article/details/52461759
+
+关于ctf中rsa的题目解析：
+
+   http://bobao.360.cn/learning/detail/3058.html
+(算法思路)
+
+   http://blog.csdn.net/qq_18661257/article/details/54563017
+
+
+   http://blog.csdn.net/veritas501/article/details/55257957
+（常见类型）
+
+yafu使用：
+
+http://www.mamicode.com/info-detail-1999309.html
+</code></pre>
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/CRYPTO/">CRYPTO</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/10/26/misc_1/" title="记一道misc图片题" itemprop="url">记一道misc图片题</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
+		
+  <p class="article-time">
+    <time datetime="2017-10-26T07:17:12.000Z" itemprop="datePublished"> Published 2017-10-26</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <h1 id="记一道MISC图片题（拖延癌晚期）"><a href="#记一道MISC图片题（拖延癌晚期）" class="headerlink" title="记一道MISC图片题（拖延癌晚期）"></a>记一道MISC图片题（拖延癌晚期）</h1><h2 id="几个月前实验班考核的一个杂项"><a href="#几个月前实验班考核的一个杂项" class="headerlink" title="几个月前实验班考核的一个杂项"></a>几个月前实验班考核的一个杂项</h2><p>这个题是今年实验班考核的时候一个学长出的300分的杂项，然后当时没做出来…回来之后在学长的提示下做出来了otz…</p>
+<p>就是一道脑洞题…不过学到了一些新的工具使用。所以总结一下。</p>
+<p>最近清理window虚拟机找到了一些做的时候的截图什么的想起来了这事。觉得有的东西还是觉得记录一下。<del>（虽然本拖延癌晚期患者已经拖了几个月…）</del></p>
+<p>原本好像是zip伪加密方式（记不太清楚了），做出来可以得到一张jpg图。</p>
+<p>这是一张守望屁股里黑百合的jpg图。<br><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/wm.jpg" alt="wm.jpg"></p>
+<p>用16进制分析工具分析一下。<br>ffd8文件头没问题，搜索一下文件尾ffd9。</p>
+<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/a.png" alt="a.png"></p>
+<p>可以看到ffd9的文件后包含了一些其他的东西。<br>这是16进制的编码，通过在线进制转换回ascii码，得到一堆的坐标点。</p>
+<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/2.png" alt="2.png"></p>
+<p>学习到了一个工具…能将坐标点转化成图像的——gnuplot。</p>
+<p>通过命令plot直接就能将一组坐标转化为图片，真四神奇啊！</p>
+<p>但是用gnuplot跑的时候发现有个问题…它不能直接识别（x，y）这种格式的。</p>
+<p>我：“……”</p>
+<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/233.jpg" alt="233.jpg"></p>
+<p>…然后找了很久，找了个文本编辑器。editplus，轻量级，还能直接转html格式，以及统计字数什么的…非常方便，运用替换（，）为空，然后首行缩进，将文本导出为3.txt。</p>
+<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/5.png" alt="5.png"><br>这种格式）</p>
+<p>然后运行gnuplot。</p>
+<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/6.png" alt="6.png"></p>
+<p>然后扫描二维码flag就出来了…</p>
+<pre><code>总结一下常用的图片文件头标识：
+JPEG/JPG - 文件头标识 (2 bytes): FF D8 FF,文件结束标识 (2 bytes): FF, D9     
+PNG - 文件头标识 (8 bytes)   89 50 4E 47 0D 0A 1A 0A    
+GIF - 文件头标识 (6 bytes)   47 49 46 38 39(37) 61                        G  I  F  8  9 (7)  a
+BMP - 文件头标识 (2 bytes)   42 4D      B  M
+以及
+gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作应该还用不上）
+</code></pre><p>这道题就是脑洞题…<br>​<br>因为以前做的图片题都是hex／binwalk＋foremost／stegsolve/（上次实验班考核还新get了一个silenteye的图片加密解密工具）</p>
+<p>不过get了新的姿势，还是记一下。<br>​<br>​<br>​    </p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/MISC/">MISC</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+
+</div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/MISC/" title="MISC">MISC<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/CRYPTO/" title="CRYPTO">CRYPTO<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://askook.me/" target="_blank" title="A酱">A酱</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.ph0rse.me" target="_blank" title="ph0rse">ph0rse</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.grassgrass.top" target="_blank" title="Grassgrass">Grassgrass</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://edvison.cn" target="_blank" title="edvison">edvison</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://eris0s.club" target="_blank" title="eris0s">eris0s</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://www.cuittk.cn" target="_blank" title="h1tler">h1tler</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> 僕は僕を肯定していたい. <br/>
+			優しい人にならなくちゃ</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/shi-rou-zhe-ma-li-96" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:sancrane@foxmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="sanc7ane">sanc7ane</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?aa19166f98afa81c8779ea1b4a7b52cc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+ </html>
