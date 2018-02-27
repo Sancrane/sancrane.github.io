@@ -140,14 +140,23 @@
 </header>
     <div class="article-content">
         
-        <p>#</p>
+        <p># </p>
 <p>emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。</p>
 <p>文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。</p>
 <p>现今文件上传的校验一般分为：<br>客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）<br>服务器端校验（包括常见的扩展名黑白名单校验，文件头校验，content-type字段校验）<br>waf设备校验</p>
-<p>##基础  </p>
-<p>###未过滤<br>     &lt;?php<br>     move_upload_file($_FILES[“file”][“tmp_name”],$<em>FILES[“file”][“name”]);<br>     ?&gt;<br>直接用move</em> upload_file函数将上传的临时文件复制到新文件，也可理解为移动到新的位置。<br>在上古web安全还不太普及的时期，文件上传漏洞还有很多没有限制文件格式或者没有在服务器端设置过滤的情况。</p>
-<p>###黑名单过滤<br>        &lt;?php<br>    $BlackList = array(‘asp’,’php’,’jsp’,’php5’,’asa’,’aspx’);//黑名单<br>    if (isset($_POST[“submit”])){<br>        $name = $_FILES[‘file’][‘name’]; //接收文件名<br>        echo $name;<br>        $extension = substr(strrchr($name,”.”),1);//得到扩展名<br>        $boo = false;  </p>
-<pre><code>    foreach ($BlackList as $key=&gt;$value){  
+<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="未过滤"><a href="#未过滤" class="headerlink" title="未过滤"></a>未过滤</h3><pre><code>&lt;?php
+move_upload_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;],$_FILES[&quot;file&quot;][&quot;name&quot;]);
+?&gt;
+</code></pre><p>直接用move_ upload_file函数将上传的临时文件复制到新文件，也可理解为移动到新的位置。<br>在上古web安全还不太普及的时期，文件上传漏洞还有很多没有限制文件格式或者没有在服务器端设置过滤的情况。</p>
+<h3 id="黑名单过滤"><a href="#黑名单过滤" class="headerlink" title="黑名单过滤"></a>黑名单过滤</h3><pre><code>    &lt;?php  
+$BlackList = array(&apos;asp&apos;,&apos;php&apos;,&apos;jsp&apos;,&apos;php5&apos;,&apos;asa&apos;,&apos;aspx&apos;);//黑名单  
+if (isset($_POST[&quot;submit&quot;])){  
+    $name = $_FILES[&apos;file&apos;][&apos;name&apos;]; //接收文件名  
+    echo $name;  
+    $extension = substr(strrchr($name,&quot;.&quot;),1);//得到扩展名  
+    $boo = false;  
+
+    foreach ($BlackList as $key=&gt;$value){  
         if ($value==$extension){//迭代判断是否有命中  
             $boo=true;  
             break;//命中之后直接退出循环  
@@ -168,7 +177,7 @@
 </code></pre><p>黑名单里只包括了’asp’,’php’,’jsp’,’php5’,’asa’,’aspx’<br>可以文件名pHP大小写绕过,或者用黑名单里没有的后缀文件进行攻击，或者文件名后加.或空格。</p>
 <p>如果php版本为5.3.4以下或php的magic_quotes_gpc为OFF状态，可以用%00截断写入绕过（1.php%00.jpg验证时的扩展名为jpg而写入时被截断最终写入的是1.php）</p>
 <p>用白名单过滤比黑名单限制更全。</p>
-<p>##文件头函数及绕过方法<br>部分服务器会用一些函数检查文件头去判断文件是不是图片文件。</p>
+<h2 id="文件头函数及绕过方法"><a href="#文件头函数及绕过方法" class="headerlink" title="文件头函数及绕过方法"></a>文件头函数及绕过方法</h2><p>部分服务器会用一些函数检查文件头去判断文件是不是图片文件。</p>
 <pre><code>&lt;?php
 print_r(getimagesize(&apos;1.gif&apos;));
 ?&gt;
@@ -184,7 +193,7 @@ echo &quot;The picture is not a gif&quot;;
 <p>绕过方法：只要在php代码前加上一行GIF98就可以进行欺骗，或者在十六进制编辑器里加上图片的文件头保存。篡改图片的Exif，在其中添加php脚本。（比如通过GIM新建图片）<br>然后看到有人做题用copy命令</p>
 <pre><code>copy 1.jpg+2.php test.jpg
 </code></pre><p>  将1.jpg和2.php合并为test.jpg….这样。</p>
-<p>##apache解析漏洞原理<br>apache解析文件的规则是当碰到不认识的扩展名时，将会从后面向前解析，直到碰到认识的扩展名为止，如果都不认识，则会暴露其源代码。</p>
+<h2 id="apache解析漏洞原理"><a href="#apache解析漏洞原理" class="headerlink" title="apache解析漏洞原理"></a>apache解析漏洞原理</h2><p>apache解析文件的规则是当碰到不认识的扩展名时，将会从后面向前解析，直到碰到认识的扩展名为止，如果都不认识，则会暴露其源代码。</p>
 <pre><code> 配置相关
 （1）如果在apache的conf里有这样一行配置————AddHandler php5-script.php 这时只要文件名里包含.php即使文件名是x.php.jpg也会以php来执行。
 （2）如果在apache的conf里有这样一行配置————AddType application/x=httpd-php.jpg 即使扩展名是.jpg，一样能以php方式执行。
@@ -549,11 +558,11 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
 			
 		
 			
-				<li><a href="/tags/WEB/" title="WEB">WEB<sup>1</sup></a></li>
+				<li><a href="/tags/CRYPTO/" title="CRYPTO">CRYPTO<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/CRYPTO/" title="CRYPTO">CRYPTO<sup>1</sup></a></li>
+				<li><a href="/tags/WEB/" title="WEB">WEB<sup>1</sup></a></li>
 			
 		
 		</ul>
