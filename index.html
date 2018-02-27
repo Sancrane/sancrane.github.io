@@ -127,21 +127,105 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/11/18/bugkuweb3/" title="" itemprop="url"></a>
+      <a href="/2017/11/18/文件上传总结/" title="文件上传总结" itemprop="url">文件上传总结</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
 		
   <p class="article-time">
-    <time datetime="2017-11-18T10:46:36.000Z" itemprop="datePublished"> Published 2017-11-18</time>
+    <time datetime="2017-11-18T07:17:12.000Z" itemprop="datePublished"> Published 2017-11-18</time>
     
   </p>
 </header>
     <div class="article-content">
         
         <p>#</p>
-<p>s=’&#75;&#69;&#89;&#123;&#74;&#50;&#115;&#97;&#52;&#50;&#97;&#104;&#74;&#75;&#45;&#72;&#83;&#49;&#49;&#73;&#73;&#73;&amp;#125’<br>key=s.split(‘;’)<br>flag=’’<br>for i in key:<br>    flag+=chr(int(i[2:]))<br>print flag<br>testtest</p>
+<p>emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。</p>
+<p>文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。</p>
+<p>现今文件上传的校验一般分为：<br>客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）<br>服务器端校验（包括常见的扩展名黑白名单校验，文件头校验，content-type字段校验）<br>waf设备校验</p>
+<p>##基础  </p>
+<p>###未过滤<br>     &lt;?php<br>     move_upload_file($_FILES[“file”][“tmp_name”],$<em>FILES[“file”][“name”]);<br>     ?&gt;<br>直接用move</em> upload_file函数将上传的临时文件复制到新文件，也可理解为移动到新的位置。<br>在上古web安全还不太普及的时期，文件上传漏洞还有很多没有限制文件格式或者没有在服务器端设置过滤的情况。</p>
+<p>###黑名单过滤<br>        &lt;?php<br>    $BlackList = array(‘asp’,’php’,’jsp’,’php5’,’asa’,’aspx’);//黑名单<br>    if (isset($_POST[“submit”])){<br>        $name = $_FILES[‘file’][‘name’]; //接收文件名<br>        echo $name;<br>        $extension = substr(strrchr($name,”.”),1);//得到扩展名<br>        $boo = false;  </p>
+<pre><code>    foreach ($BlackList as $key=&gt;$value){  
+        if ($value==$extension){//迭代判断是否有命中  
+            $boo=true;  
+            break;//命中之后直接退出循环  
+        }  
+    }  
+
+    if(!$boo){//如果没有命中，则开始文件上传操作  
+        $size=$_FILES[&apos;file&apos;][&apos;size&apos;];//接收文件大小  
+        $tmp=$_FILES[&apos;file&apos;][&apos;tmp_name&apos;];//临时路径  
+        move_uploaded_file($tmp,$name);//移动临时文件到当前文件目录  
+        echo &quot;文件上传成功！&lt;br/&gt; path:&quot;.$name;  
+    }else {  
+        echo &quot;文件不合法！！&quot;;  
+    }  
+
+}  
+    ?&gt; //摘自csdn日昇月恆的代码
+</code></pre><p>黑名单里只包括了’asp’,’php’,’jsp’,’php5’,’asa’,’aspx’<br>可以文件名pHP大小写绕过,或者用黑名单里没有的后缀文件进行攻击，或者文件名后加.或空格。</p>
+<p>如果php版本为5.3.4以下或php的magic_quotes_gpc为OFF状态，可以用%00截断写入绕过（1.php%00.jpg验证时的扩展名为jpg而写入时被截断最终写入的是1.php）</p>
+<p>用白名单过滤比黑名单限制更全。</p>
+<p>##文件头函数及绕过方法<br>部分服务器会用一些函数检查文件头去判断文件是不是图片文件。</p>
+<pre><code>&lt;?php
+print_r(getimagesize(&apos;1.gif&apos;));
+?&gt;
+</code></pre><p> getimagesize()函数用于取得图像大小，如果不是有效图像则会返回false并报错。其中负责判断文件类型的函数是php_getimagetype，其是根据文件流前几个字节（文件头）判断.</p>
+<pre><code>&lt;?php
+
+  if (exif_imagetype(&quot;image.gif&quot;) != IMAGETYPE_GIF) {
+echo &quot;The picture is not a gif&quot;;
+}
+
+?&gt;
+</code></pre><p>exifimagetype（）读取一个图像的第一个字节并检查其签名，用来避免调用其它exif函数用到了不支持的文件类型上或和$_SERVER[‘HTTP _ACCEPT’]结合使用来检查浏览器是否可以显示某个指定的图像。</p>
+<p>绕过方法：只要在php代码前加上一行GIF98就可以进行欺骗，或者在十六进制编辑器里加上图片的文件头保存。篡改图片的Exif，在其中添加php脚本。（比如通过GIM新建图片）<br>然后看到有人做题用copy命令</p>
+<pre><code>copy 1.jpg+2.php test.jpg
+</code></pre><p>  将1.jpg和2.php合并为test.jpg….这样。</p>
+<p>##apache解析漏洞原理<br>apache解析文件的规则是当碰到不认识的扩展名时，将会从后面向前解析，直到碰到认识的扩展名为止，如果都不认识，则会暴露其源代码。</p>
+<pre><code> 配置相关
+（1）如果在apache的conf里有这样一行配置————AddHandler php5-script.php 这时只要文件名里包含.php即使文件名是x.php.jpg也会以php来执行。
+（2）如果在apache的conf里有这样一行配置————AddType application/x=httpd-php.jpg 即使扩展名是.jpg，一样能以php方式执行。
+</code></pre><p>解析漏洞与apache和php版本无关,是运维人员错误配置AddHandler,结合apache从后往前解析多扩展文件的特性造成的漏洞。</p>
+<p>很多人认为apache解析漏洞仅存于低版本的apache中，但实际上apache解析漏洞在apache1.x和2.x版本中都有。只是在2.x服务器解析规则中需要配置apache信息才能使得php能够被解析。</p>
+<p>当时小组放环境测试的时候发现，上传的木马文件的源码直接爆出来了，x.php.jpg并没有被执行。在网上查了原因后改了服务器解析规则，出题环境才测试正常。</p>
+<p>因为在/etc/mime.types，php类型是被注释掉的，也就是说apache本身不“识别”php。</p>
+<p>而服务器解析文件里有个filesmatch，是指定PHP后缀的文件调用php模块去执行。</p>
+<p>在/etc/apache2/mods-enabled/php5.conf中</p>
+<pre><code>&lt;FilesMatch &quot;.+\.ph(p[345]?|t|tml)$&quot;&gt;
+  SetHandler application/x-httpd-php
+&lt;/FilesMatch&gt;
+&lt;FilesMatch &quot;.+\.phps$&quot;&gt;
+  SetHandler application/x-httpd-php-source
+  # Deny access to raw php sources by default
+  # To re-enable it&apos;s recommended to enable access to the files
+  # only in specific virtual host or directory
+  Order Deny,Allow
+  Deny from all
+&lt;/FilesMatch&gt;
+ # Deny access to files without filename (e.g. &apos;.php&apos;)
+ &lt;FilesMatch &quot;^\.ph(p[345]?|t|tml|ps)$&quot;&gt;
+  Order Deny,Allow
+  Deny from all
+&lt;/FilesMatch&gt;
+
+# Running PHP scripts in user directories is disabled by default
+#
+# To re-enable PHP in user directories comment the following lines
+# (from &lt;IfModule ...&gt; to &lt;/IfModule&gt;.) Do NOT set it to On as it
+# prevents .htaccess files from disabling it.
+&lt;IfModule mod_userdir.c&gt;
+  &lt;Directory /home/*/public_html&gt;
+      php_admin_flag engine Off
+  &lt;/Directory&gt;
+&lt;/IfModule&gt;
+</code></pre><p>第一行通过正则表达如果文件后缀是php/php3/php4/php5/pht/phptml/phps就把文件交给php_module来处理,结果再返回给apache,之后再由apache发送给浏览器。<br>通过这样apache就把以上文件解析了。<br>如果将正则中的$改为.也就是正则变为”.+.ph(p[345]?|t|tml).“<br>重启apache让配置文件生效，再在浏览器中访问如a.php.jpg（或者其他无法识别的扩展名）的文件，这些文件都会被当作php执行了。浏览器中看到的将会是文件执行结果。</p>
+<p>另外，当分别安装apache和php，以及一些集成环境(lamp)中，如果运维人员自己配置apache信息或者集成环境里已经给出解析语句使得能够php能被解析<br>在/etc/httpd/conf/httpd.conf中如果有</p>
+<pre><code>#AddHandler type-map var
+AddHandler php5-script .php 
+</code></pre><p>那么php文件就能被解析了。<br>所以如果将 AddHandler php5-script .php 注释掉，也不会存在该漏洞。</p>
 
         
         
@@ -152,6 +236,11 @@
     <footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/WEB/">WEB</a>
+  </div>
 
 </div>
 
@@ -460,6 +549,10 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
 			
 		
 			
+				<li><a href="/tags/WEB/" title="WEB">WEB<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/CRYPTO/" title="CRYPTO">CRYPTO<sup>1</sup></a></li>
 			
 		
@@ -541,8 +634,8 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
 	
 	
 	<section class="info">
-		<p> 僕は僕を肯定していたい. <br/>
-			優しい人にならなくちゃ</p>
+		<p> 生存-愉快-意义 <br/>
+			从入门到摸鱼</p>
 	</section>
 	 
 	<div class="social-font" class="clearfix">

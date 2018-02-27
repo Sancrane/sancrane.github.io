@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>RSA入门总结 | sanc7ane&#39;blog</title>
+    <title>文件上传总结 | sanc7ane&#39;blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="sanc7ane">
     
 
     
-    <meta name="description" content="RSA好好学数学啊小同志！…先简单说一下rsa相关的东西。 RSA 算法的可靠性由其极大整数因数分解的难度决定。 也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。 在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（只要我跑的足够快，寂寞就追不上我（闭嘴）) 最近稍微看了一下">
-<meta name="keywords" content="CRYPTO">
+    <meta name="description" content="# emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。 文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。 现今文件上传的校验一般分为：客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）服务器">
+<meta name="keywords" content="WEB">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RSA入门总结">
-<meta property="og:url" content="www.sancrane.top/2017/11/13/一个RSA入门总结/index.html">
+<meta property="og:title" content="文件上传总结">
+<meta property="og:url" content="www.sancrane.top/2017/11/18/文件上传总结/index.html">
 <meta property="og:site_name" content="sanc7ane&#39;blog">
-<meta property="og:description" content="RSA好好学数学啊小同志！…先简单说一下rsa相关的东西。 RSA 算法的可靠性由其极大整数因数分解的难度决定。 也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。 在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（只要我跑的足够快，寂寞就追不上我（闭嘴）) 最近稍微看了一下">
-<meta property="og:updated_time" content="2017-11-15T09:17:02.000Z">
+<meta property="og:description" content="# emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。 文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。 现今文件上传的校验一般分为：客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）服务器">
+<meta property="og:updated_time" content="2018-02-27T17:25:47.961Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RSA入门总结">
-<meta name="twitter:description" content="RSA好好学数学啊小同志！…先简单说一下rsa相关的东西。 RSA 算法的可靠性由其极大整数因数分解的难度决定。 也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。 在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（只要我跑的足够快，寂寞就追不上我（闭嘴）) 最近稍微看了一下">
+<meta name="twitter:title" content="文件上传总结">
+<meta name="twitter:description" content="# emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。 文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。 现今文件上传的校验一般分为：客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）服务器">
 
     
     <link rel="alternative" href="/atom.xml" title="sanc7ane&#39;blog" type="application/atom+xml">
@@ -81,14 +81,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/11/13/一个RSA入门总结/" title="RSA入门总结" itemprop="url">RSA入门总结</a>
+      <a href="/2017/11/18/文件上传总结/" title="文件上传总结" itemprop="url">文件上传总结</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
 		
   <p class="article-time">
-    <time datetime="2017-11-12T19:14:43.000Z" itemprop="datePublished"> Published 2017-11-13</time>
+    <time datetime="2017-11-18T07:17:12.000Z" itemprop="datePublished"> Published 2017-11-18</time>
     
   </p>
 </header>
@@ -97,140 +97,97 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RSA"><span class="toc-number">1.</span> <span class="toc-text">RSA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#好好学数学啊小同志！"><span class="toc-number">1.0.1.</span> <span class="toc-text">好好学数学啊小同志！</span></a></li></ol></li></ol></li></ol>
+			
 		
 		</div>
 		
-		<h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><h3 id="好好学数学啊小同志！"><a href="#好好学数学啊小同志！" class="headerlink" title="好好学数学啊小同志！"></a>好好学数学啊小同志！</h3><p>…先简单说一下rsa相关的东西。</p>
-<p>RSA 算法的可靠性由其极大整数因数分解的难度决定。</p>
-<p>也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。</p>
-<p>在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（<del>只要我跑的足够快，寂寞就追不上我（闭嘴）</del>)</p>
-<p>最近稍微看了一下相关的东西。然后整理了一下www</p>
-<p>a^b是a的b次方啦…忘了应该怎么打出来了orz…</p>
-<pre><code>RSA算法涉及到的参数：
+		<p>#</p>
+<p>emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。</p>
+<p>文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。</p>
+<p>现今文件上传的校验一般分为：<br>客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）<br>服务器端校验（包括常见的扩展名黑白名单校验，文件头校验，content-type字段校验）<br>waf设备校验</p>
+<p>##基础  </p>
+<p>###未过滤<br>     &lt;?php<br>     move_upload_file($_FILES[“file”][“tmp_name”],$<em>FILES[“file”][“name”]);<br>     ?&gt;<br>直接用move</em> upload_file函数将上传的临时文件复制到新文件，也可理解为移动到新的位置。<br>在上古web安全还不太普及的时期，文件上传漏洞还有很多没有限制文件格式或者没有在服务器端设置过滤的情况。</p>
+<p>###黑名单过滤<br>        &lt;?php<br>    $BlackList = array(‘asp’,’php’,’jsp’,’php5’,’asa’,’aspx’);//黑名单<br>    if (isset($_POST[“submit”])){<br>        $name = $_FILES[‘file’][‘name’]; //接收文件名<br>        echo $name;<br>        $extension = substr(strrchr($name,”.”),1);//得到扩展名<br>        $boo = false;  </p>
+<pre><code>    foreach ($BlackList as $key=&gt;$value){  
+        if ($value==$extension){//迭代判断是否有命中  
+            $boo=true;  
+            break;//命中之后直接退出循环  
+        }  
+    }  
 
-p : 大质数p
-q : 大质数q
-n : n=p*q
+    if(!$boo){//如果没有命中，则开始文件上传操作  
+        $size=$_FILES[&apos;file&apos;][&apos;size&apos;];//接收文件大小  
+        $tmp=$_FILES[&apos;file&apos;][&apos;tmp_name&apos;];//临时路径  
+        move_uploaded_file($tmp,$name);//移动临时文件到当前文件目录  
+        echo &quot;文件上传成功！&lt;br/&gt; path:&quot;.$name;  
+    }else {  
+        echo &quot;文件不合法！！&quot;;  
+    }  
 
-欧拉函数：
-φ(n) = φ(p) * φ(q) = (p − 1)(q − 1) = n − (p + q − 1)
+}  
+    ?&gt; //摘自csdn日昇月恆的代码
+</code></pre><p>黑名单里只包括了’asp’,’php’,’jsp’,’php5’,’asa’,’aspx’<br>可以文件名pHP大小写绕过,或者用黑名单里没有的后缀文件进行攻击，或者文件名后加.或空格。</p>
+<p>如果php版本为5.3.4以下或php的magic_quotes_gpc为OFF状态，可以用%00截断写入绕过（1.php%00.jpg验证时的扩展名为jpg而写入时被截断最终写入的是1.php）</p>
+<p>用白名单过滤比黑名单限制更全。</p>
+<p>##文件头函数及绕过方法<br>部分服务器会用一些函数检查文件头去判断文件是不是图片文件。</p>
+<pre><code>&lt;?php
+print_r(getimagesize(&apos;1.gif&apos;));
+?&gt;
+</code></pre><p> getimagesize()函数用于取得图像大小，如果不是有效图像则会返回false并报错。其中负责判断文件类型的函数是php_getimagetype，其是根据文件流前几个字节（文件头）判断.</p>
+<pre><code>&lt;?php
 
-e : encryption key (public key) (又称加密指数)
+  if (exif_imagetype(&quot;image.gif&quot;) != IMAGETYPE_GIF) {
+echo &quot;The picture is not a gif&quot;;
+}
 
-d : decryption key (private key) e对于φ(n)的模反元素即e模φ(n)的逆元
+?&gt;
+</code></pre><p>exifimagetype（）读取一个图像的第一个字节并检查其签名，用来避免调用其它exif函数用到了不支持的文件类型上或和$_SERVER[‘HTTP _ACCEPT’]结合使用来检查浏览器是否可以显示某个指定的图像。</p>
+<p>绕过方法：只要在php代码前加上一行GIF98就可以进行欺骗，或者在十六进制编辑器里加上图片的文件头保存。篡改图片的Exif，在其中添加php脚本。（比如通过GIM新建图片）<br>然后看到有人做题用copy命令</p>
+<pre><code>copy 1.jpg+2.php test.jpg
+</code></pre><p>  将1.jpg和2.php合并为test.jpg….这样。</p>
+<p>##apache解析漏洞原理<br>apache解析文件的规则是当碰到不认识的扩展名时，将会从后面向前解析，直到碰到认识的扩展名为止，如果都不认识，则会暴露其源代码。</p>
+<pre><code> 配置相关
+（1）如果在apache的conf里有这样一行配置————AddHandler php5-script.php 这时只要文件名里包含.php即使文件名是x.php.jpg也会以php来执行。
+（2）如果在apache的conf里有这样一行配置————AddType application/x=httpd-php.jpg 即使扩展名是.jpg，一样能以php方式执行。
+</code></pre><p>解析漏洞与apache和php版本无关,是运维人员错误配置AddHandler,结合apache从后往前解析多扩展文件的特性造成的漏洞。</p>
+<p>很多人认为apache解析漏洞仅存于低版本的apache中，但实际上apache解析漏洞在apache1.x和2.x版本中都有。只是在2.x服务器解析规则中需要配置apache信息才能使得php能够被解析。</p>
+<p>当时小组放环境测试的时候发现，上传的木马文件的源码直接爆出来了，x.php.jpg并没有被执行。在网上查了原因后改了服务器解析规则，出题环境才测试正常。</p>
+<p>因为在/etc/mime.types，php类型是被注释掉的，也就是说apache本身不“识别”php。</p>
+<p>而服务器解析文件里有个filesmatch，是指定PHP后缀的文件调用php模块去执行。</p>
+<p>在/etc/apache2/mods-enabled/php5.conf中</p>
+<pre><code>&lt;FilesMatch &quot;.+\.ph(p[345]?|t|tml)$&quot;&gt;
+  SetHandler application/x-httpd-php
+&lt;/FilesMatch&gt;
+&lt;FilesMatch &quot;.+\.phps$&quot;&gt;
+  SetHandler application/x-httpd-php-source
+  # Deny access to raw php sources by default
+  # To re-enable it&apos;s recommended to enable access to the files
+  # only in specific virtual host or directory
+  Order Deny,Allow
+  Deny from all
+&lt;/FilesMatch&gt;
+ # Deny access to files without filename (e.g. &apos;.php&apos;)
+ &lt;FilesMatch &quot;^\.ph(p[345]?|t|tml|ps)$&quot;&gt;
+  Order Deny,Allow
+  Deny from all
+&lt;/FilesMatch&gt;
 
-m：message（m &lt; n），明文。
-
-c : ciphertext，c≡m^e(mod n),即密文
-</code></pre><p>加密过程：</p>
-<p><strong>1.随机选择两个不相等的质数p和q。</strong></p>
-<p><strong>2.计算p和q的乘积n。</strong></p>
-<p>n的长度就是密钥长度。</p>
-<p>如n为3233写成二进制是110010100001，一共有12位，所以这个密钥就是12位。（实际应用中，RSA密钥一般是1024位，重要场合则为2048位。）</p>
-<p><strong>3.计算n的欧拉函数φ(n)</strong></p>
-<p><strong>φ(n) = (p-1)(q-1)</strong></p>
-<p><strong>4.随机选择一个整数e</strong>，条件是<strong>1&lt; e &lt; φ(n)</strong>，且e与φ(n) <strong>互质</strong>，将e作为公钥。</p>
-<p><strong>5.计算e关于φ(n)的模反元素d，作为私钥。</strong></p>
-<p>计算过程：</p>
-<p>模反元素即模逆元（参考离散数学或者信安数学基础或者百科学习）</p>
-<p>简单来说，就是一个整数d可以使ed乘积被φ(n)除的余数为1：<br><strong>ed ≡ 1 (mod φ(n))</strong>（也就是ed％φ(n)＝1）<br>即求解</p>
-<p><strong>ed＋φ(n)x＝1</strong>（x未知，但是求得e和φ(n)就可以通过扩展欧几里得算法得到d的值，具体可以参考最底下ctf中rsa题目解析第二个链接。）</p>
-<p>公开e，保留d。</p>
-<p><strong>公钥为(n,e)，私钥为(n,d)  </strong></p>
-<p>针对明文M，进行加密：C=(M^e)%n，得到的C即为密文</p>
-<p>针对密文C，进行解密，M=(C^d)%n，得到的M即为明文</p>
-<p>而在ctf比赛里，一般会给出n值和e值，然后可以在<strong><a href="http://factordb.com/" target="_blank" rel="noopener">http://factordb.com/</a></strong>或者大质数分解工具里因式分解，得到p，q。然后通过p，q算出φ(n）。通过φ(n）和e，算出d。</p>
-<p>jarvis oj一道简单的rsa：veryeasyrsa</p>
-<pre><code>已知RSA公钥生成参数：
-
-p = 3487583947589437589237958723892346254777
-q = 8767867843568934765983476584376578389
-e = 65537
-
-求d 
-</code></pre><p>py脚本如下。<br>modinv函数就是求模逆的函数。</p>
-<pre><code>import math
-
-
-def egcd(a, b):
-     if a == 0:
-         return (b, 0, 1)
-     else:
-         g, y, x = egcd(b % a, a)
-         return (g, x - (b // a) * y, y)
-
-
-def modinv(a, m):
-    g, x, y = egcd(a, m)
-    if g != 1:
-        raise Exception(&apos;modular inverse does not    exist&apos;)
-    else:
-        return x % m
-
-
-p = 3487583947589437589237958723892346254777
-q = 8767867843568934765983476584376578389
-e = 65537
-d = modinv(e, (p - 1) * (q - 1))
-print d
-</code></pre><p>明文就是m＝pow(c,d,n)</p>
-<p>（ps.当e＝1时，c≡ m mod n，因为n远大于c，m＝c.也就是明文密文是一样的…实际上没加密啦…）</p>
-<p>有的时候，会出现多个n的公约数分解.</p>
-<p>比如给了2个n（n1，n2），q的值相同（而p不同所以有多个n），e的值和密文c。py脚本如下：</p>
-<pre><code>def gcd(a, b):
-    if a &lt; b:
-        a, b = b, a
-
-    while b != 0:
-        temp = a % b
-        a = b
-        b = temp
-
-    return a
-
-
-
-n1=。。。
-n2=。。。
-
-p = gcd(n1,n2)
-
-print p,&quot;\n\n&quot;,n1 // p
-</code></pre><p>就可以算出<strong>q</strong>的值啦。</p>
-<p>也就是最后输出的<strong>n1除以p</strong>。</p>
-<p>老方法，知道p，q就知道φ(n）。通过φ(n）和e，算出d。</p>
-<p>其他：</p>
-<p>一般题目不会直接给参数，可能给比如pem文件（后缀.enc/.pem），可以通过linux下openssl命令提取。linux下命令：</p>
-<p><strong>openssl rsa -pubin -text -modulus -in warmup -in 喵.pem</strong></p>
-<p>和</p>
-<p><strong>openssl   rsautl -encrypt -in FLAG -inkey public.pem -pubin -out 喵.enc</strong></p>
-<p>在p，q的取值差异过大，或者p，q的取值过于相近的时候，Format算法与Pollard rho算法都可以很快将n分解成功。</p>
-<p>（利用开源项目<strong>yafu</strong>可以自动化实现，语句直接：<strong>factor(n)</strong></p>
-<p>也可以通过linux下的openssl命令提取。</p>
-<p>RSA入门级别的大概就这样…<br>以后大概会补充后续？…</p>
-<p>学习了之后的感受是…<br>我，我以后一定好好听数学课！（ry</p>
-<pre><code>具体算法解析：
-   http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html
-
-关于rsa公钥指数：
-   http://blog.csdn.net/hherima/article/details/52461759
-
-关于ctf中rsa的题目解析：
-
-   http://bobao.360.cn/learning/detail/3058.html
-(算法思路)
-
-   http://blog.csdn.net/qq_18661257/article/details/54563017
-
-
-   http://blog.csdn.net/veritas501/article/details/55257957
-（常见类型）
-
-yafu使用：
-
-http://www.mamicode.com/info-detail-1999309.html
-</code></pre>  
+# Running PHP scripts in user directories is disabled by default
+#
+# To re-enable PHP in user directories comment the following lines
+# (from &lt;IfModule ...&gt; to &lt;/IfModule&gt;.) Do NOT set it to On as it
+# prevents .htaccess files from disabling it.
+&lt;IfModule mod_userdir.c&gt;
+  &lt;Directory /home/*/public_html&gt;
+      php_admin_flag engine Off
+  &lt;/Directory&gt;
+&lt;/IfModule&gt;
+</code></pre><p>第一行通过正则表达如果文件后缀是php/php3/php4/php5/pht/phptml/phps就把文件交给php_module来处理,结果再返回给apache,之后再由apache发送给浏览器。<br>通过这样apache就把以上文件解析了。<br>如果将正则中的$改为.也就是正则变为”.+.ph(p[345]?|t|tml).“<br>重启apache让配置文件生效，再在浏览器中访问如a.php.jpg（或者其他无法识别的扩展名）的文件，这些文件都会被当作php执行了。浏览器中看到的将会是文件执行结果。</p>
+<p>另外，当分别安装apache和php，以及一些集成环境(lamp)中，如果运维人员自己配置apache信息或者集成环境里已经给出解析语句使得能够php能被解析<br>在/etc/httpd/conf/httpd.conf中如果有</p>
+<pre><code>#AddHandler type-map var
+AddHandler php5-script .php 
+</code></pre><p>那么php文件就能被解析了。<br>所以如果将 AddHandler php5-script .php 注释掉，也不会存在该漏洞。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -238,7 +195,7 @@ http://www.mamicode.com/info-detail-1999309.html
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CRYPTO/">CRYPTO</a>
+  <span></span> <a href="/tags/WEB/">WEB</a>
   </div>
 
 </div>
@@ -247,7 +204,7 @@ http://www.mamicode.com/info-detail-1999309.html
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="www.sancrane.top/2017/11/13/一个RSA入门总结/" data-title="RSA入门总结 | sanc7ane&#39;blog" data-tsina="" class="share clearfix">
+	  <div data-url="www.sancrane.top/2017/11/18/文件上传总结/" data-title="文件上传总结 | sanc7ane&#39;blog" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -261,18 +218,18 @@ http://www.mamicode.com/info-detail-1999309.html
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/11/18/文件上传总结/" title="文件上传总结">
+ <a href="/2017/12/27/test/" title="test">
   <strong>上一篇：</strong><br/>
   <span>
-  文件上传总结</span>
+  test</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/10/26/misc_1/"  title="记一道misc图片题">
+<a href="/2017/11/13/一个RSA入门总结/"  title="RSA入门总结">
  <strong>下一篇：</strong><br/> 
- <span>记一道misc图片题
+ <span>RSA入门总结
 </span>
 </a>
 </div>
@@ -289,7 +246,7 @@ http://www.mamicode.com/info-detail-1999309.html
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RSA"><span class="toc-number">1.</span> <span class="toc-text">RSA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#好好学数学啊小同志！"><span class="toc-number">1.0.1.</span> <span class="toc-text">好好学数学啊小同志！</span></a></li></ol></li></ol></li></ol>
+ 
  
   </div>
 
