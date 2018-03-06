@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:2.png">
 <meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:3.png">
 <meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:4.png">
-<meta property="og:updated_time" content="2018-03-06T09:08:33.077Z">
+<meta property="og:updated_time" content="2018-03-06T16:56:17.254Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP作业的一点小坑">
 <meta name="twitter:description" content="单纯是怕下次环境崩了又来重新搭建查百度浪费时间。dalao们可以忽视这个了（… 配置环境老师教学用的myeclipse。然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解… 用软件一直到替换文件成功都还是没问题的。然后打开，报错…好像是说因为软件环境被更改了。 尝试了很久最后还是向虚拟机势力妥协。eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也">
@@ -102,7 +102,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#404超值套餐"><span class="toc-number">2.</span> <span class="toc-text">404超值套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#project未部署"><span class="toc-number">2.1.</span> <span class="toc-text">project未部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径错误"><span class="toc-number">2.2.</span> <span class="toc-text">路径错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.3.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#package包报错"><span class="toc-number">3.</span> <span class="toc-text">package包报错</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#404超值套餐"><span class="toc-number">2.</span> <span class="toc-text">404超值套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#project未部署"><span class="toc-number">2.1.</span> <span class="toc-text">project未部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径错误"><span class="toc-number">2.2.</span> <span class="toc-text">路径错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.3.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#package包报错"><span class="toc-number">3.</span> <span class="toc-text">package包报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工程消失"><span class="toc-number">4.</span> <span class="toc-text">工程消失</span></a></li></ol>
 		
 		</div>
 		
@@ -127,6 +127,12 @@
 
 方法3.右击project下的 JRE System Library[JavaSE-1.5]Properties,Execution environment 选择“JavaSE-1.6(JDK1.6.0_10)”,点击确定即可。
 </code></pre><p>我用的方法三解决。</p>
+<h1 id="工程消失"><a href="#工程消失" class="headerlink" title="工程消失"></a>工程消失</h1><p>更新…</p>
+<p>在写完这个文章的当天晚上，在帮室友看她的问题，然后想看下自己的代码。因为我的虚拟机是放在移动硬盘里的，然后移动硬盘的盒子的线…好像有点接触问题（<br>win打开后，硬盘弹了。<br>修复了几次。<br>结果里面有的文件损坏了。（比如迅雷就gg了，不过这个没什么关系<br>其他的还没看，大部分东西都有备份。）<br>myeclipse出了问题，（配环境真的很鹅心短时间内不想再弄了），左边的工作空间全部消失，也不能在面板新建项目。还好在电脑里的工程啥的没消失。</p>
+<p>然后查了一下出现这个的情况。<br>有人说import之前的项目文件进去就行，发现按照该方法并没有用。<br>还有说是myeclipse自己换了工作空间。我看了一下，工作空间路径没有问题。</p>
+<p>最后的解决是直接重置布局格式，恢复eclipse默认的布局格式。 </p>
+<pre><code>window -&gt; reset perspective
+</code></pre><p>然后，左边的项目回来了，也可以新建项目什么的了。<br>哇真是吓死我了。<br>备份真的很重要啊（…</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -178,7 +184,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#404超值套餐"><span class="toc-number">2.</span> <span class="toc-text">404超值套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#project未部署"><span class="toc-number">2.1.</span> <span class="toc-text">project未部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径错误"><span class="toc-number">2.2.</span> <span class="toc-text">路径错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.3.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#package包报错"><span class="toc-number">3.</span> <span class="toc-text">package包报错</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#404超值套餐"><span class="toc-number">2.</span> <span class="toc-text">404超值套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#project未部署"><span class="toc-number">2.1.</span> <span class="toc-text">project未部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径错误"><span class="toc-number">2.2.</span> <span class="toc-text">路径错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.3.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#package包报错"><span class="toc-number">3.</span> <span class="toc-text">package包报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工程消失"><span class="toc-number">4.</span> <span class="toc-text">工程消失</span></a></li></ol>
  
   </div>
 
