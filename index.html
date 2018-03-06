@@ -78,6 +78,82 @@
         <header class="article-info clearfix">
   <h1 itemprop="name">
     
+      <a href="/2018/03/06/JSP作业的一点小坑/" title="JSP作业的一点小坑" itemprop="url">JSP作业的一点小坑</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
+		
+  <p class="article-time">
+    <time datetime="2018-03-06T06:36:00.000Z" itemprop="datePublished"> Published 2018-03-06</time>
+    
+  </p>
+</header>
+    <div class="article-content">
+        
+        <p>单纯是怕下次环境崩了又来重新搭建查百度浪费时间。<br>dalao们可以忽视这个了（…</p>
+<p>#配置环境<br>老师教学用的myeclipse。<br>然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解…</p>
+<p>用软件一直到替换文件成功都还是没问题的。<br>然后打开，报错…好像是说因为软件环境被更改了。</p>
+<p>尝试了很久最后还是向虚拟机势力妥协。<br>eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也挺快的就懒得去弄了。<br>然后按照教程配置环境，看的是</p>
+<pre><code>http://blog.csdn.NET/qq_25827845/article/details/53982209 冷血之心的博客
+</code></pre><p>然后按照教程配置java环境，在系统变量里添加JAVA_HOME等，安装配置tomcat（关闭它自带的tomcat然后添加自己的路径），启动发布项目等…</p>
+<p>#404超值套餐</p>
+<p>##project未部署<br>如果在浏览器中访问项目index.jsp显示404最普通的一个原因是project没有部署，在tomcat文件目录下的conf/server.xml<br>添加</p>
+<pre><code>Context path=&quot;/test1&quot; docBase=&quot;C:\Users\Jonah\Workspaces\MyEclipse 10\test1\WebRoot\&quot; reloadable=&quot;true&quot;/&gt;
+</code></pre><p><img src="http://oyyavfixl.bkt.clouddn.com/image:jsp:1.png" alt="1.png"><br>然后在localhost访问test1或者test1/index.jsp就可以直接看到了。<br>记得要重启一下tomcat。</p>
+<p>##路径错误<br>在做请求与响应的时候，一开始form的action那里直接复制的java文件的绝对路径。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:jsp:2.png" alt="2.png">然后不能访问。</p>
+<p>直接把action那里改成web.xml中servlet-mapping中路径就可以了。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:jsp:3.png" alt="3.png"><br><img src="http://oyyavfixl.bkt.clouddn.com/image:jsp:4.png" alt="4.png"><br>就可以了。</p>
+<p>##其他<br>然后…其他地方都检查没问题的时候，还是没办法跳转。<br>提交按钮可以点但是什么都没发生。<br>仔细看了一下，form那行有个警告。<br>再仔细看了下，原来把form写成了from，编译器不能识别。<br>orz<br>然后zxc这人之前还笑我来着，结果自己也把form的method部分写错了一直查不到原因hhhhhhhhhhhh</p>
+<p>#package包报错<br>做请求与响应的时候，在src创建一个servlet的java文件，然后发现java文件的package包报错</p>
+<pre><code>multipe markers at this line the type java.objectinputstr xxx
+</code></pre><p>原因是系统用的jdk1.8的jre版本过高。<br>解决方法：</p>
+<pre><code>方法1.选择Eclipse的WindowPreferencesJavaCompiler，把Compiler compliance level从1.5改成1.6；
+
+方法2.右击project选择最后一个properties选择左侧的java compiler,勾选里面的框框，把java编辑器版本都改成1.6；
+
+方法3.右击project下的 JRE System Library[JavaSE-1.5]Properties,Execution environment 选择“JavaSE-1.6(JDK1.6.0_10)”,点击确定即可。
+</code></pre><p>我用的方法三解决。</p>
+
+        
+        
+        <p class="article-more-link">
+          
+       </p>
+    </div>
+    <footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/MISC/">MISC</a>
+  </div>
+
+</div>
+
+
+
+
+<div class="comments-count">
+	
+</div>
+
+</footer>
+
+
+    </article>
+
+
+
+
+
+
+   
+    
+    <article class="post-expand post" itemprop="articleBody"> 
+        <header class="article-info clearfix">
+  <h1 itemprop="name">
+    
       <a href="/2017/12/27/test/" title="Joomla未授权创建用户漏洞(CVE-2016-8870)复现" itemprop="url">Joomla未授权创建用户漏洞(CVE-2016-8870)复现</a>
   </h1>
   <p class="article-author">By
@@ -692,11 +768,11 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/WEB/" title="WEB">WEB<sup>2</sup></a></li>
+				<li><a href="/tags/MISC/" title="MISC">MISC<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/MISC/" title="MISC">MISC<sup>1</sup></a></li>
+				<li><a href="/tags/WEB/" title="WEB">WEB<sup>2</sup></a></li>
 			
 		
 			
