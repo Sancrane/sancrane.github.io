@@ -22,7 +22,7 @@
 <meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:2.png">
 <meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:3.png">
 <meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:4.png">
-<meta property="og:updated_time" content="2018-03-06T16:56:17.254Z">
+<meta property="og:updated_time" content="2018-03-06T16:58:52.778Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP作业的一点小坑">
 <meta name="twitter:description" content="单纯是怕下次环境崩了又来重新搭建查百度浪费时间。dalao们可以忽视这个了（… 配置环境老师教学用的myeclipse。然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解… 用软件一直到替换文件成功都还是没问题的。然后打开，报错…好像是说因为软件环境被更改了。 尝试了很久最后还是向虚拟机势力妥协。eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也">
@@ -54,7 +54,7 @@
 				<h1 class="site-name"><a href="/" title="sanc7ane&#39;blog">sanc7ane&#39;blog</a></h1>
 				<h2 class="blog-motto"></h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -70,7 +70,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:www.sancrane.top">
 					</form>
 					
@@ -93,14 +93,14 @@
 		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
 		
   <p class="article-time">
-    <time datetime="2018-03-06T06:36:00.000Z" itemprop="datePublished"> Published 2018-03-06</time>
+    <time datetime="2018-03-06T06:36:00.000Z" itemprop="datePublished"> 发表于 2018-03-06</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目录</strong>
 		
 			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#404超值套餐"><span class="toc-number">2.</span> <span class="toc-text">404超值套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#project未部署"><span class="toc-number">2.1.</span> <span class="toc-text">project未部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径错误"><span class="toc-number">2.2.</span> <span class="toc-text">路径错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.3.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#package包报错"><span class="toc-number">3.</span> <span class="toc-text">package包报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工程消失"><span class="toc-number">4.</span> <span class="toc-text">工程消失</span></a></li></ol>
 		
@@ -125,7 +125,8 @@
 
 方法2.右击project选择最后一个properties选择左侧的java compiler,勾选里面的框框，把java编辑器版本都改成1.6；
 
-方法3.右击project下的 JRE System Library[JavaSE-1.5]Properties,Execution environment 选择“JavaSE-1.6(JDK1.6.0_10)”,点击确定即可。
+方法3.右击project下的 JRE System Library[JavaSE-1.5]Properties,Execution environment 
+选择“JavaSE-1.6(JDK1.6.0_10)”,点击确定即可。
 </code></pre><p>我用的方法三解决。</p>
 <h1 id="工程消失"><a href="#工程消失" class="headerlink" title="工程消失"></a>工程消失</h1><p>更新…</p>
 <p>在写完这个文章的当天晚上，在帮室友看她的问题，然后想看下自己的代码。因为我的虚拟机是放在移动硬盘里的，然后移动硬盘的盒子的线…好像有点接触问题（<br>win打开后，硬盘弹了。<br>修复了几次。<br>结果里面有的文件损坏了。（比如迅雷就gg了，不过这个没什么关系<br>其他的还没看，大部分东西都有备份。）<br>myeclipse出了问题，（配环境真的很鹅心短时间内不想再弄了），左边的工作空间全部消失，也不能在面板新建项目。还好在电脑里的工程啥的没消失。</p>
@@ -179,17 +180,17 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目录</strong>
  
  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境"><span class="toc-number">1.</span> <span class="toc-text">配置环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#404超值套餐"><span class="toc-number">2.</span> <span class="toc-text">404超值套餐</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#project未部署"><span class="toc-number">2.1.</span> <span class="toc-text">project未部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#路径错误"><span class="toc-number">2.2.</span> <span class="toc-text">路径错误</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#其他"><span class="toc-number">2.3.</span> <span class="toc-text">其他</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#package包报错"><span class="toc-number">3.</span> <span class="toc-text">package包报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#工程消失"><span class="toc-number">4.</span> <span class="toc-text">工程消失</span></a></li></ol>
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
 <aside class="clearfix">
 
   
@@ -199,7 +200,7 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">标签</p>
 		<ul class="clearfix">
 		
 			
@@ -223,7 +224,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">Links</p>
+  <p class="asidetitle">友情链接</p>
     <ul>
         
           <li>
@@ -281,11 +282,11 @@
 
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">Weibo</p>
+  <p class="asidetitle">新浪微博</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=&verifier=&dpc=1"></iframe>
 </div>
 
@@ -516,7 +517,7 @@ var _hmt = _hmt || [];
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
