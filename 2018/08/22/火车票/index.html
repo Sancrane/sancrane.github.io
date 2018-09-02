@@ -4,24 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>文件上传总结 | sanc7ane&#39;blog</title>
+    <title>通过一张火车票可以得到什么 | sanc7ane&#39;blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="sanc7ane">
     
 
     
-    <meta name="description" content="#  emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。 文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。 现今文件上传的校验一般分为：客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）服务">
-<meta name="keywords" content="WEB">
+    <meta name="description" content="通过一张火车票可以得到什么摘要假期回学校的时候，在火车东站被陌生人骗钱200块，气哭。报警之后也没有反馈，出警费可能都不止200吧（。）自己太不小心了…以后一定警惕QAQ当时照了一张骗子出示的火车票。虽然不一定是本人的…就试着看看通过一张火车票能查到什么。 身份证编码方式火车票面上有个人完整姓名和少了四位出生日期的身份证号码。身份证号码是由六位数字地址码+八位数字出生日期码+三位数字顺序码+一位校">
+<meta name="keywords" content="MISC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="文件上传总结">
-<meta property="og:url" content="www.sancrane.top/2017/11/18/文件上传总结/index.html">
+<meta property="og:title" content="通过一张火车票可以得到什么">
+<meta property="og:url" content="www.sancrane.top/2018/08/22/火车票/index.html">
 <meta property="og:site_name" content="sanc7ane&#39;blog">
-<meta property="og:description" content="#  emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。 文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。 现今文件上传的校验一般分为：客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）服务">
-<meta property="og:updated_time" content="2018-02-27T17:38:07.807Z">
+<meta property="og:description" content="通过一张火车票可以得到什么摘要假期回学校的时候，在火车东站被陌生人骗钱200块，气哭。报警之后也没有反馈，出警费可能都不止200吧（。）自己太不小心了…以后一定警惕QAQ当时照了一张骗子出示的火车票。虽然不一定是本人的…就试着看看通过一张火车票能查到什么。 身份证编码方式火车票面上有个人完整姓名和少了四位出生日期的身份证号码。身份证号码是由六位数字地址码+八位数字出生日期码+三位数字顺序码+一位校">
+<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/hcp1.jpg?imageMogr2/thumbnail/!50p">
+<meta property="og:updated_time" content="2018-09-02T07:37:35.969Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="文件上传总结">
-<meta name="twitter:description" content="#  emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。 文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。 现今文件上传的校验一般分为：客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）服务">
+<meta name="twitter:title" content="通过一张火车票可以得到什么">
+<meta name="twitter:description" content="通过一张火车票可以得到什么摘要假期回学校的时候，在火车东站被陌生人骗钱200块，气哭。报警之后也没有反馈，出警费可能都不止200吧（。）自己太不小心了…以后一定警惕QAQ当时照了一张骗子出示的火车票。虽然不一定是本人的…就试着看看通过一张火车票能查到什么。 身份证编码方式火车票面上有个人完整姓名和少了四位出生日期的身份证号码。身份证号码是由六位数字地址码+八位数字出生日期码+三位数字顺序码+一位校">
+<meta name="twitter:image" content="http://oyyavfixl.bkt.clouddn.com/hcp1.jpg?imageMogr2/thumbnail/!50p">
 
     
     <link rel="alternative" href="/atom.xml" title="sanc7ane&#39;blog" type="application/atom+xml">
@@ -83,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/11/18/文件上传总结/" title="文件上传总结" itemprop="url">文件上传总结</a>
+      <a href="/2018/08/22/火车票/" title="通过一张火车票可以得到什么" itemprop="url">通过一张火车票可以得到什么</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
 		
   <p class="article-time">
-    <time datetime="2017-11-18T07:17:12.000Z" itemprop="datePublished"> Published 2017-11-18</time>
+    <time datetime="2018-08-22T06:15:11.000Z" itemprop="datePublished"> Published 2018-08-22</time>
     
   </p>
 </header>
@@ -99,105 +101,78 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#未过滤"><span class="toc-number">1.1.</span> <span class="toc-text">未过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#黑名单过滤"><span class="toc-number">1.2.</span> <span class="toc-text">黑名单过滤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件头函数及绕过方法"><span class="toc-number">2.</span> <span class="toc-text">文件头函数及绕过方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apache解析漏洞原理"><span class="toc-number">3.</span> <span class="toc-text">apache解析漏洞原理</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#通过一张火车票可以得到什么"><span class="toc-number">1.</span> <span class="toc-text">通过一张火车票可以得到什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#身份证编码方式"><span class="toc-number">1.2.</span> <span class="toc-text">身份证编码方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证身份证号码"><span class="toc-number">1.3.</span> <span class="toc-text">验证身份证号码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<p># </p>
-<p>emmmmmmm之前班上小组分环境，我们组刚好做的文件上传漏洞。当时考察的是检测文件头验证绕过和apache解析漏洞。于是做一些相关总结。</p>
-<p>文件上传漏洞是个非常常见且容易理解的一个漏洞，有很多的漏洞场景和利用方式。</p>
-<p>现今文件上传的校验一般分为：<br>客户端javascript校验（也即是网页上一段javascript脚本校验上传文件的后缀名，此时并未发送数据包，可以通过burp等修改直接绕过）<br>服务器端校验（包括常见的扩展名黑白名单校验，文件头校验，content-type字段校验）<br>waf设备校验</p>
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h3 id="未过滤"><a href="#未过滤" class="headerlink" title="未过滤"></a>未过滤</h3><pre><code>&lt;?php
-move_upload_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;],$_FILES[&quot;file&quot;][&quot;name&quot;]);
-?&gt;
-</code></pre><p>直接用move_ upload_file函数将上传的临时文件复制到新文件，也可理解为移动到新的位置。<br>在上古web安全还不太普及的时期，文件上传漏洞还有很多没有限制文件格式或者没有在服务器端设置过滤的情况。</p>
-<h3 id="黑名单过滤"><a href="#黑名单过滤" class="headerlink" title="黑名单过滤"></a>黑名单过滤</h3><pre><code>    &lt;?php  
-$BlackList = array(&apos;asp&apos;,&apos;php&apos;,&apos;jsp&apos;,&apos;php5&apos;,&apos;asa&apos;,&apos;aspx&apos;);//黑名单  
-if (isset($_POST[&quot;submit&quot;])){  
-    $name = $_FILES[&apos;file&apos;][&apos;name&apos;]; //接收文件名  
-    echo $name;  
-    $extension = substr(strrchr($name,&quot;.&quot;),1);//得到扩展名  
-    $boo = false;  
+		<h1 id="通过一张火车票可以得到什么"><a href="#通过一张火车票可以得到什么" class="headerlink" title="通过一张火车票可以得到什么"></a>通过一张火车票可以得到什么</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>假期回学校的时候，在火车东站被陌生人骗钱200块，气哭。报警之后也没有反馈，出警费可能都不止200吧（。）<br>自己太不小心了…以后一定警惕QAQ<br>当时照了一张骗子出示的火车票。虽然不一定是本人的…就试着看看通过一张火车票能查到什么。</p>
+<h2 id="身份证编码方式"><a href="#身份证编码方式" class="headerlink" title="身份证编码方式"></a>身份证编码方式</h2><p>火车票面上有个人完整姓名和少了四位出生日期的身份证号码。<br>身份证号码是由六位数字地址码+八位数字出生日期码+三位数字顺序码+一位校验码。<br><img src="http://oyyavfixl.bkt.clouddn.com/hcp1.jpg?imageMogr2/thumbnail/!50p" alt="hcp.jpg"><br>火车票打码部分是生日月份日期，则只有366种可能。<br>而通过校验码去除校验失败的号码后，还剩下30余可能的号码。<br>1、地址码<br>表示编码对象常住户口所在县(市、旗、区)的行政区域划分代码，按GB/T2260的规定执行。</p>
+<p>2、出生日期码<br>表示编码对象出生的年、月、日，按GB/T7408的规定执行，年、月、日代码之间不用分隔符。</p>
+<p>3、顺序码<br>表示在同一地址码所标识的区域范围内，对同年、同月、同日出生的人编定的顺序号，顺序码的奇数分配给男性，偶数分配给女性。</p>
+<p>4、校验码</p>
+<p>计算步骤：<br>(1)十七位数字本体码加权求和公式<br>　　S = Sum(Ai * Wi), i = 0, … , 16 ，先对前17位数字的权求和<br>　　Ai:表示第i位置上的身份证号码数字值(0~9)<br>　　Wi:7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2 （表示第i位置上的加权因子）<br>(2)计算模<br>　　Y = mod(S, 11)<br>(3)根据模，查找得到对应的校验码<br>　　Y: 0 1 2 3 4 5 6 7 8 9 10<br>　　校验码: 1 0 X 9 8 7 6 5 4 3 2<br>python代码：</p>
+<pre><code>   #coding:utf-8
+import time
 
-    foreach ($BlackList as $key=&gt;$value){  
-        if ($value==$extension){//迭代判断是否有命中  
-            $boo=true;  
-            break;//命中之后直接退出循环  
-        }  
-    }  
+# 身份证号 5001071997****2042
+# 姓名 黄xx
 
-    if(!$boo){//如果没有命中，则开始文件上传操作  
-        $size=$_FILES[&apos;file&apos;][&apos;size&apos;];//接收文件大小  
-        $tmp=$_FILES[&apos;file&apos;][&apos;tmp_name&apos;];//临时路径  
-        move_uploaded_file($tmp,$name);//移动临时文件到当前文件目录  
-        echo &quot;文件上传成功！&lt;br/&gt; path:&quot;.$name;  
-    }else {  
-        echo &quot;文件不合法！！&quot;;  
-    }  
+s=&quot;5001071997****2042&quot;
 
-}  
-    ?&gt; //摘自csdn日昇月恆的代码
-</code></pre><p>黑名单里只包括了’asp’,’php’,’jsp’,’php5’,’asa’,’aspx’<br>可以文件名pHP大小写绕过,或者用黑名单里没有的后缀文件进行攻击，或者文件名后加.或空格。</p>
-<p>如果php版本为5.3.4以下或php的magic_quotes_gpc为OFF状态，可以用%00截断写入绕过（1.php%00.jpg验证时的扩展名为jpg而写入时被截断最终写入的是1.php）</p>
-<p>用白名单过滤比黑名单限制更全。</p>
-<h2 id="文件头函数及绕过方法"><a href="#文件头函数及绕过方法" class="headerlink" title="文件头函数及绕过方法"></a>文件头函数及绕过方法</h2><p>部分服务器会用一些函数检查文件头去判断文件是不是图片文件。</p>
-<pre><code>&lt;?php
-print_r(getimagesize(&apos;1.gif&apos;));
-?&gt;
-</code></pre><p> getimagesize()函数用于取得图像大小，如果不是有效图像则会返回false并报错。其中负责判断文件类型的函数是php_getimagetype，其是根据文件流前几个字节（文件头）判断.</p>
-<pre><code>&lt;?php
+sfz = [s.replace(&apos;****&apos;,j[4:])# 将****替换为j列表的字符串
+       for j in [time.strftime(&apos;%Y%m%d&apos;,time.localtime(i))#返回以可读字符串表示的当地时间
+                 for i in range(int(time.mktime(time.strptime(s[6:10]+&apos;0101&apos;,&apos;%Y%m%d&apos;))),
+                                int(time.mktime(time.strptime(s[6:10]+&apos;1231&apos;,&apos;%Y%m%d&apos;)))+1,3600*24)]
+       if s[-1] == &apos;10X98765432&apos;[sum(map(lambda x: int(x[0]) * x[1], zip(s.replace(&apos;****&apos;,j[4:]), [7, 
+9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]) )) % 11]]
+        #判断最后一位校验码及加权因子，验证校验码
+for i in sfz:
+  print i   
+</code></pre><p>  可以得到身份证可能的号码有：</p>
+<pre><code>500107199701022042
+500107199701102042
+500107199701292042
+500107199702092042
+500107199702172042
+500107199702252042
+500107199703052042
+500107199703132042
+500107199703212042
+500107199704012042
+500107199704282042
+500107199705082042
+500107199705162042
+500107199705242042
+500107199706042042
+500107199706122042
+500107199706202042
+500107199707192042
+500107199707272042
+500107199708072042
+500107199708152042
+500107199708232042
+500107199708312042
+500107199709032042
+500107199709112042
+500107199710092042
+500107199710172042
+500107199710252042
+500107199711052042
+500107199711132042
+500107199711212042
+500107199712012042
+500107199712282042
 
-  if (exif_imagetype(&quot;image.gif&quot;) != IMAGETYPE_GIF) {
-echo &quot;The picture is not a gif&quot;;
-}
-
-?&gt;
-</code></pre><p>exifimagetype（）读取一个图像的第一个字节并检查其签名，用来避免调用其它exif函数用到了不支持的文件类型上或和$_SERVER[‘HTTP _ACCEPT’]结合使用来检查浏览器是否可以显示某个指定的图像。</p>
-<p>绕过方法：只要在php代码前加上一行GIF98就可以进行欺骗，或者在十六进制编辑器里加上图片的文件头保存。篡改图片的Exif，在其中添加php脚本。（比如通过GIM新建图片）<br>然后看到有人做题用copy命令</p>
-<pre><code>copy 1.jpg+2.php test.jpg
-</code></pre><p>  将1.jpg和2.php合并为test.jpg….这样。</p>
-<h2 id="apache解析漏洞原理"><a href="#apache解析漏洞原理" class="headerlink" title="apache解析漏洞原理"></a>apache解析漏洞原理</h2><p>apache解析文件的规则是当碰到不认识的扩展名时，将会从后面向前解析，直到碰到认识的扩展名为止，如果都不认识，则会暴露其源代码。</p>
-<pre><code> 配置相关
-（1）如果在apache的conf里有这样一行配置————AddHandler php5-script.php 这时只要文件名里包含.php即使文件名是x.php.jpg也会以php来执行。
-（2）如果在apache的conf里有这样一行配置————AddType application/x=httpd-php.jpg 即使扩展名是.jpg，一样能以php方式执行。
-</code></pre><p>解析漏洞与apache和php版本无关,是运维人员错误配置AddHandler,结合apache从后往前解析多扩展文件的特性造成的漏洞。</p>
-<p>很多人认为apache解析漏洞仅存于低版本的apache中，但实际上apache解析漏洞在apache1.x和2.x版本中都有。只是在2.x服务器解析规则中需要配置apache信息才能使得php能够被解析。</p>
-<p>当时小组放环境测试的时候发现，上传的木马文件的源码直接爆出来了，x.php.jpg并没有被执行。在网上查了原因后改了服务器解析规则，出题环境才测试正常。</p>
-<p>因为在/etc/mime.types，php类型是被注释掉的，也就是说apache本身不“识别”php。</p>
-<p>而服务器解析文件里有个filesmatch，是指定PHP后缀的文件调用php模块去执行。</p>
-<p>在/etc/apache2/mods-enabled/php5.conf中</p>
-<pre><code>&lt;FilesMatch &quot;.+\.ph(p[345]?|t|tml)$&quot;&gt;
-  SetHandler application/x-httpd-php
-&lt;/FilesMatch&gt;
-&lt;FilesMatch &quot;.+\.phps$&quot;&gt;
-  SetHandler application/x-httpd-php-source
-  # Deny access to raw php sources by default
-  # To re-enable it&apos;s recommended to enable access to the files
-  # only in specific virtual host or directory
-  Order Deny,Allow
-  Deny from all
-&lt;/FilesMatch&gt;
- # Deny access to files without filename (e.g. &apos;.php&apos;)
- &lt;FilesMatch &quot;^\.ph(p[345]?|t|tml|ps)$&quot;&gt;
-  Order Deny,Allow
-  Deny from all
-&lt;/FilesMatch&gt;
-
-# Running PHP scripts in user directories is disabled by default
-#
-# To re-enable PHP in user directories comment the following lines
-# (from &lt;IfModule ...&gt; to &lt;/IfModule&gt;.) Do NOT set it to On as it
-# prevents .htaccess files from disabling it.
-&lt;IfModule mod_userdir.c&gt;
-  &lt;Directory /home/*/public_html&gt;
-      php_admin_flag engine Off
-  &lt;/Directory&gt;
-&lt;/IfModule&gt;
-</code></pre><p>第一行通过正则表达如果文件后缀是php/php3/php4/php5/pht/phptml/phps就把文件交给php_module来处理,结果再返回给apache,之后再由apache发送给浏览器。<br>通过这样apache就把以上文件解析了。<br>如果将正则中的$改为.也就是正则变为”.+.ph(p[345]?|t|tml).“<br>重启apache让配置文件生效，再在浏览器中访问如a.php.jpg（或者其他无法识别的扩展名）的文件，这些文件都会被当作php执行了。浏览器中看到的将会是文件执行结果。</p>
-<p>另外，当分别安装apache和php，以及一些集成环境(lamp)中，如果运维人员自己配置apache信息或者集成环境里已经给出解析语句使得能够php能被解析<br>在/etc/httpd/conf/httpd.conf中如果有</p>
-<pre><code>#AddHandler type-map var
-AddHandler php5-script .php 
-</code></pre><p>那么php文件就能被解析了。<br>所以如果将 AddHandler php5-script .php 注释掉，也不会存在该漏洞。</p>
+Process finished with exit code 0
+</code></pre><h2 id="验证身份证号码"><a href="#验证身份证号码" class="headerlink" title="验证身份证号码"></a>验证身份证号码</h2><p>1.尝试输入身份证号码在谷歌查询。<br>在谷歌试过搜索一些身份证号码，因为高中学校的数据库好像被脱过，找到过自己的个人信息orz。除了这个以外，谷歌上还保存着很多网页快照信息。包括现在学校的学生个人信息，也可以通过一些关键字搜索到一些Excel文件，然后甚至可以查到该生身份证，电话号码之类的隐私信息。（尤其是评奖评优的(。</p>
+<p>2.实名验证api<br>网络上现在有很多各种用途的api。也有供实名验证的api。注意辨别数据库的来源。一般需要收费。会返回不同状态码来表示查询结果。</p>
+<p>3.实名验证网站<br>感觉最方便的是12306的常用联系人选项。<br>不过需要等一段时间才会有结果。如果验证通过则说明实名成功。<br>试了可能身份证号码的前一半，都没通过，也没接到公安的后续电话了，觉得麻烦就没继续了。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>火车票尽管做了一定模糊处理但是还是可以通过技术手段获取对方身份证号码。可能造成的危害有：</p>
+<pre><code>1.实名身份被占用。注册某些服务的时候需要去重申。或者用于一些非法活动。
+2.查到更多个人信息，针对性的进行诈骗。
+3.进入社工库的身份证信息。可以用于如抢票软件等实名认证部分。
+...
+</code></pre><p>解决方法：<br>一个是个人注意票根隐私，不要乱扔。<br>希望12306给校验码部分打码。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -206,7 +181,7 @@ AddHandler php5-script .php
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/WEB/">WEB</a>
+  <span></span> <a href="/tags/MISC/">MISC</a>
   </div>
 
 </div>
@@ -215,7 +190,7 @@ AddHandler php5-script .php
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="www.sancrane.top/2017/11/18/文件上传总结/" data-title="文件上传总结 | sanc7ane&#39;blog" data-tsina="" class="share clearfix">
+	  <div data-url="www.sancrane.top/2018/08/22/火车票/" data-title="通过一张火车票可以得到什么 | sanc7ane&#39;blog" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -228,19 +203,11 @@ AddHandler php5-script .php
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/12/27/test/" title="Joomla未授权创建用户漏洞(CVE-2016-8870)复现">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Joomla未授权创建用户漏洞(CVE-2016-8870)复现</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/11/13/一个RSA入门总结/"  title="RSA入门总结">
+<a href="/2018/03/06/JSP作业的一点小坑/"  title="JSP作业的一点小坑">
  <strong>下一篇：</strong><br/> 
- <span>RSA入门总结
+ <span>JSP作业的一点小坑
 </span>
 </a>
 </div>
@@ -257,7 +224,7 @@ AddHandler php5-script .php
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基础"><span class="toc-number">1.</span> <span class="toc-text">基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#未过滤"><span class="toc-number">1.1.</span> <span class="toc-text">未过滤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#黑名单过滤"><span class="toc-number">1.2.</span> <span class="toc-text">黑名单过滤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文件头函数及绕过方法"><span class="toc-number">2.</span> <span class="toc-text">文件头函数及绕过方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#apache解析漏洞原理"><span class="toc-number">3.</span> <span class="toc-text">apache解析漏洞原理</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#通过一张火车票可以得到什么"><span class="toc-number">1.</span> <span class="toc-text">通过一张火车票可以得到什么</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#摘要"><span class="toc-number">1.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#身份证编码方式"><span class="toc-number">1.2.</span> <span class="toc-text">身份证编码方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证身份证号码"><span class="toc-number">1.3.</span> <span class="toc-text">验证身份证号码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 
