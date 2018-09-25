@@ -4,24 +4,24 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>RSA入门总结 | sanc7ane&#39;blog</title>
+    <title>kali丢失Net::Whois::IP等模块解决 | sanc7ane&#39;blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="sanc7ane">
     
 
     
-    <meta name="description" content="RSA好好学数学啊小同志！…先简单说一下rsa相关的东西。 RSA 算法的可靠性由其极大整数因数分解的难度决定。 也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。 在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（只要我跑的足够快，寂寞就追不上我（闭嘴）) 最近稍微看了一下">
-<meta name="keywords" content="CRYPTO">
+    <meta name="description" content="kali丢失Net::Whois::IP等模块解决做网络攻防作业，使用dnsenum进行查询dns数据信息。在使用部分参数的时候出现报错。比如enum，是–threads 5 -s 15 -w的快捷方式，即除了默认的A，NS和MX查询外，使用5个线程，将从Google抓取的子域的最大数量（默认值为15），以及在c类网络范围上执行whois查询。 1 2 3 4 5 6 root@kali:~# d">
+<meta name="keywords" content="KALI">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RSA入门总结">
-<meta property="og:url" content="www.sancrane.top/2017/11/13/一个RSA入门总结/index.html">
+<meta property="og:title" content="kali丢失Net::Whois::IP等模块解决">
+<meta property="og:url" content="www.sancrane.top/2018/09/26/kali丢失模块解决/index.html">
 <meta property="og:site_name" content="sanc7ane&#39;blog">
-<meta property="og:description" content="RSA好好学数学啊小同志！…先简单说一下rsa相关的东西。 RSA 算法的可靠性由其极大整数因数分解的难度决定。 也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。 在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（只要我跑的足够快，寂寞就追不上我（闭嘴）) 最近稍微看了一下">
-<meta property="og:updated_time" content="2017-11-15T09:17:02.000Z">
+<meta property="og:description" content="kali丢失Net::Whois::IP等模块解决做网络攻防作业，使用dnsenum进行查询dns数据信息。在使用部分参数的时候出现报错。比如enum，是–threads 5 -s 15 -w的快捷方式，即除了默认的A，NS和MX查询外，使用5个线程，将从Google抓取的子域的最大数量（默认值为15），以及在c类网络范围上执行whois查询。 1 2 3 4 5 6 root@kali:~# d">
+<meta property="og:updated_time" content="2018-09-25T16:25:52.417Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RSA入门总结">
-<meta name="twitter:description" content="RSA好好学数学啊小同志！…先简单说一下rsa相关的东西。 RSA 算法的可靠性由其极大整数因数分解的难度决定。 也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。 在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（只要我跑的足够快，寂寞就追不上我（闭嘴）) 最近稍微看了一下">
+<meta name="twitter:title" content="kali丢失Net::Whois::IP等模块解决">
+<meta name="twitter:description" content="kali丢失Net::Whois::IP等模块解决做网络攻防作业，使用dnsenum进行查询dns数据信息。在使用部分参数的时候出现报错。比如enum，是–threads 5 -s 15 -w的快捷方式，即除了默认的A，NS和MX查询外，使用5个线程，将从Google抓取的子域的最大数量（默认值为15），以及在c类网络范围上执行whois查询。 1 2 3 4 5 6 root@kali:~# d">
 
     
     <link rel="alternative" href="/atom.xml" title="sanc7ane&#39;blog" type="application/atom+xml">
@@ -83,14 +83,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/11/13/一个RSA入门总结/" title="RSA入门总结" itemprop="url">RSA入门总结</a>
+      <a href="/2018/09/26/kali丢失模块解决/" title="kali丢失Net::Whois::IP等模块解决" itemprop="url">kali丢失Net::Whois::IP等模块解决</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
 		
   <p class="article-time">
-    <time datetime="2017-11-12T19:14:43.000Z" itemprop="datePublished"> 发表于 2017-11-13</time>
+    <time datetime="2018-09-25T16:25:22.000Z" itemprop="datePublished"> 发表于 2018-09-26</time>
     
   </p>
 </header>
@@ -99,140 +99,57 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RSA"><span class="toc-number">1.</span> <span class="toc-text">RSA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#好好学数学啊小同志！"><span class="toc-number">1.0.1.</span> <span class="toc-text">好好学数学啊小同志！</span></a></li></ol></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#kali丢失Net-Whois-IP等模块解决"><span class="toc-number">1.</span> <span class="toc-text">kali丢失Net::Whois::IP等模块解决</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><h3 id="好好学数学啊小同志！"><a href="#好好学数学啊小同志！" class="headerlink" title="好好学数学啊小同志！"></a>好好学数学啊小同志！</h3><p>…先简单说一下rsa相关的东西。</p>
-<p>RSA 算法的可靠性由其极大整数因数分解的难度决定。</p>
-<p>也就是说，极大整数做因数分解愈困难，RSA 算法愈可靠。</p>
-<p>在还没找到一种快速因数分解的算法之前，rsa加密还是很可靠的。目前短的 RSA 秘钥可能被强力方式破解。而只要密钥长度足够长，用RSA加密的信息实际上是不能被解破的。（<del>只要我跑的足够快，寂寞就追不上我（闭嘴）</del>)</p>
-<p>最近稍微看了一下相关的东西。然后整理了一下www</p>
-<p>a^b是a的b次方啦…忘了应该怎么打出来了orz…</p>
-<pre><code>RSA算法涉及到的参数：
-
-p : 大质数p
-q : 大质数q
-n : n=p*q
-
-欧拉函数：
-φ(n) = φ(p) * φ(q) = (p − 1)(q − 1) = n − (p + q − 1)
-
-e : encryption key (public key) (又称加密指数)
-
-d : decryption key (private key) e对于φ(n)的模反元素即e模φ(n)的逆元
-
-m：message（m &lt; n），明文。
-
-c : ciphertext，c≡m^e(mod n),即密文
-</code></pre><p>加密过程：</p>
-<p><strong>1.随机选择两个不相等的质数p和q。</strong></p>
-<p><strong>2.计算p和q的乘积n。</strong></p>
-<p>n的长度就是密钥长度。</p>
-<p>如n为3233写成二进制是110010100001，一共有12位，所以这个密钥就是12位。（实际应用中，RSA密钥一般是1024位，重要场合则为2048位。）</p>
-<p><strong>3.计算n的欧拉函数φ(n)</strong></p>
-<p><strong>φ(n) = (p-1)(q-1)</strong></p>
-<p><strong>4.随机选择一个整数e</strong>，条件是<strong>1&lt; e &lt; φ(n)</strong>，且e与φ(n) <strong>互质</strong>，将e作为公钥。</p>
-<p><strong>5.计算e关于φ(n)的模反元素d，作为私钥。</strong></p>
-<p>计算过程：</p>
-<p>模反元素即模逆元（参考离散数学或者信安数学基础或者百科学习）</p>
-<p>简单来说，就是一个整数d可以使ed乘积被φ(n)除的余数为1：<br><strong>ed ≡ 1 (mod φ(n))</strong>（也就是ed％φ(n)＝1）<br>即求解</p>
-<p><strong>ed＋φ(n)x＝1</strong>（x未知，但是求得e和φ(n)就可以通过扩展欧几里得算法得到d的值，具体可以参考最底下ctf中rsa题目解析第二个链接。）</p>
-<p>公开e，保留d。</p>
-<p><strong>公钥为(n,e)，私钥为(n,d)  </strong></p>
-<p>针对明文M，进行加密：C=(M^e)%n，得到的C即为密文</p>
-<p>针对密文C，进行解密，M=(C^d)%n，得到的M即为明文</p>
-<p>而在ctf比赛里，一般会给出n值和e值，然后可以在<strong><a href="http://factordb.com/" target="_blank" rel="noopener">http://factordb.com/</a></strong>或者大质数分解工具里因式分解，得到p，q。然后通过p，q算出φ(n）。通过φ(n）和e，算出d。</p>
-<p>jarvis oj一道简单的rsa：veryeasyrsa</p>
-<pre><code>已知RSA公钥生成参数：
-
-p = 3487583947589437589237958723892346254777
-q = 8767867843568934765983476584376578389
-e = 65537
-
-求d 
-</code></pre><p>py脚本如下。<br>modinv函数就是求模逆的函数。</p>
-<pre><code>import math
-
-
-def egcd(a, b):
-     if a == 0:
-         return (b, 0, 1)
-     else:
-         g, y, x = egcd(b % a, a)
-         return (g, x - (b // a) * y, y)
-
-
-def modinv(a, m):
-    g, x, y = egcd(a, m)
-    if g != 1:
-        raise Exception(&apos;modular inverse does not    exist&apos;)
-    else:
-        return x % m
-
-
-p = 3487583947589437589237958723892346254777
-q = 8767867843568934765983476584376578389
-e = 65537
-d = modinv(e, (p - 1) * (q - 1))
-print d
-</code></pre><p>明文就是m＝pow(c,d,n)</p>
-<p>（ps.当e＝1时，c≡ m mod n，因为n远大于c，m＝c.也就是明文密文是一样的…实际上没加密啦…）</p>
-<p>有的时候，会出现多个n的公约数分解.</p>
-<p>比如给了2个n（n1，n2），q的值相同（而p不同所以有多个n），e的值和密文c。py脚本如下：</p>
-<pre><code>def gcd(a, b):
-    if a &lt; b:
-        a, b = b, a
-
-    while b != 0:
-        temp = a % b
-        a = b
-        b = temp
-
-    return a
-
-
-
-n1=。。。
-n2=。。。
-
-p = gcd(n1,n2)
-
-print p,&quot;\n\n&quot;,n1 // p
-</code></pre><p>就可以算出<strong>q</strong>的值啦。</p>
-<p>也就是最后输出的<strong>n1除以p</strong>。</p>
-<p>老方法，知道p，q就知道φ(n）。通过φ(n）和e，算出d。</p>
-<p>其他：</p>
-<p>一般题目不会直接给参数，可能给比如pem文件（后缀.enc/.pem），可以通过linux下openssl命令提取。linux下命令：</p>
-<p><strong>openssl rsa -pubin -text -modulus -in warmup -in 喵.pem</strong></p>
-<p>和</p>
-<p><strong>openssl   rsautl -encrypt -in FLAG -inkey public.pem -pubin -out 喵.enc</strong></p>
-<p>在p，q的取值差异过大，或者p，q的取值过于相近的时候，Format算法与Pollard rho算法都可以很快将n分解成功。</p>
-<p>（利用开源项目<strong>yafu</strong>可以自动化实现，语句直接：<strong>factor(n)</strong></p>
-<p>也可以通过linux下的openssl命令提取。</p>
-<p>RSA入门级别的大概就这样…<br>以后大概会补充后续？…</p>
-<p>学习了之后的感受是…<br>我，我以后一定好好听数学课！（ry</p>
-<pre><code>具体算法解析：
-   http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html
-
-关于rsa公钥指数：
-   http://blog.csdn.net/hherima/article/details/52461759
-
-关于ctf中rsa的题目解析：
-
-   http://bobao.360.cn/learning/detail/3058.html
-(算法思路)
-
-   http://blog.csdn.net/qq_18661257/article/details/54563017
-
-
-   http://blog.csdn.net/veritas501/article/details/55257957
-（常见类型）
-
-yafu使用：
-
-http://www.mamicode.com/info-detail-1999309.html
-</code></pre>  
+		<h1 id="kali丢失Net-Whois-IP等模块解决"><a href="#kali丢失Net-Whois-IP等模块解决" class="headerlink" title="kali丢失Net::Whois::IP等模块解决"></a>kali丢失Net::Whois::IP等模块解决</h1><p>做网络攻防作业，使用dnsenum进行查询dns数据信息。在使用部分参数的时候出现报错。<br>比如enum，是–threads 5 -s 15 -w的快捷方式，即除了默认的A，NS和MX查询外，使用5个线程，将从Google抓取的子域的最大数量（默认值为15），以及在c类网络范围上执行whois查询。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~# dnsenum --enum baidu.com</span>
+<span class="line">Smartmatch is experimental at /usr/bin/dnsenum line 698.</span>
+<span class="line">Smartmatch is experimental at /usr/bin/dnsenum line 698.</span>
+<span class="line">dnsenum VERSION:1.2.4</span>
+<span class="line">Warning: can&apos;t load Net::Whois::IP module, whois queries disabled.</span>
+<span class="line">Warning: can&apos;t load WWW::Mechanize module, Google scraping desabled.</span>
+</pre></td></tr></table></figure>
+<p>查了一些解决办法，比如通过运行perl -MCPAN -e shell然后在提示符下安装模块：install Net::Whois::IP。然后找不到该资源包失败。<br>还尝试更新源后下载，也不能解决。<br>最后的解决办法是：<br>先谷歌到该模块作者，然后记住该作者名字。<br>在<a href="https://cpan.metacpan.org/authors/id/找到该作者名字首字母。比如Net::Whois::IP的作者页http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/，然后找到Net::Whois::IP的安装包通过wget下载。" target="_blank" rel="noopener">https://cpan.metacpan.org/authors/id/找到该作者名字首字母。比如Net::Whois::IP的作者页http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/，然后找到Net::Whois::IP的安装包通过wget下载。</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~# wget http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/Net-Whois-IP-1.04.tar.gz</span>
+</pre></td></tr></table></figure></p>
+<p>然后解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~# tar xzvf Net-Whois-IP-1.04.tar.gz</span>
+</pre></td></tr></table></figure></p>
+<p>cd到对应目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~# cd Net-Whois-IP-1.04</span>
+</pre></td></tr></table></figure></p>
+<p>在perl中，必须以与大多数工具不同的方式创建make文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~/Net-Whois-IP-1.04#  perl Makefile.PL</span>
+</pre></td></tr></table></figure></p>
+<p>然后发布标准make命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~/Net-Whois-IP-1.04#  make</span>
+</pre></td></tr></table></figure></p>
+<p>Perl还允许测试功能，以确保拥有所有必需的模块，这些模块是depndencies。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~/Net-Whois-IP-1.04# make test</span>
+</pre></td></tr></table></figure></p>
+<p>最后，用make install命令来完成安装<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~/Net-Whois-IP-1.04# make install</span>
+</pre></td></tr></table></figure></p>
+<p>另外可发出make clean命令来清理文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~/Net-Whois-IP-1.04# make clean</span>
+</pre></td></tr></table></figure></p>
+<p>同样对WWW::Mechanize 进行操作，如其作者为OALDERS，就找到对应链接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">https://cpan.metacpan.org/authors/id/O/OA/OALDERS/</span>
+</pre></td></tr></table></figure></p>
+<p>找到想要下载的安装包，我用的<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+</pre></td><td class="code"><pre><span class="line">root@kali:~# wget http://search.cpan.org/CPAN/authors/id/O/OA/OALDERS/WWW-Mechanize-1.78.tar.gz</span>
+</pre></td></tr></table></figure></p>
+<p>这个资源包，其他步骤和whois模块相同。</p>
+<p>最后就不会出现这个报错了。</p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -240,7 +157,7 @@ http://www.mamicode.com/info-detail-1999309.html
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/CRYPTO/">CRYPTO</a>
+  <span></span> <a href="/tags/KALI/">KALI</a>
   </div>
 
 </div>
@@ -249,7 +166,7 @@ http://www.mamicode.com/info-detail-1999309.html
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="www.sancrane.top/2017/11/13/一个RSA入门总结/" data-title="RSA入门总结 | sanc7ane&#39;blog" data-tsina="" class="share clearfix">
+	  <div data-url="www.sancrane.top/2018/09/26/kali丢失模块解决/" data-title="kali丢失Net::Whois::IP等模块解决 | sanc7ane&#39;blog" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -262,19 +179,11 @@ http://www.mamicode.com/info-detail-1999309.html
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/11/18/文件上传总结/" title="文件上传总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  文件上传总结</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/10/26/misc_1/"  title="记一道misc图片题">
+<a href="/2018/09/19/机器学习环境初配置/"  title="机器学习环境初配置">
  <strong>下一篇：</strong><br/> 
- <span>记一道misc图片题
+ <span>机器学习环境初配置
 </span>
 </a>
 </div>
@@ -291,7 +200,7 @@ http://www.mamicode.com/info-detail-1999309.html
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#RSA"><span class="toc-number">1.</span> <span class="toc-text">RSA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#好好学数学啊小同志！"><span class="toc-number">1.0.1.</span> <span class="toc-text">好好学数学啊小同志！</span></a></li></ol></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#kali丢失Net-Whois-IP等模块解决"><span class="toc-number">1.</span> <span class="toc-text">kali丢失Net::Whois::IP等模块解决</span></a></li></ol>
  
   </div>
 

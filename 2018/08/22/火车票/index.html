@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="sanc7ane&#39;blog">
 <meta property="og:description" content="通过一张火车票可以得到什么摘要假期回学校的时候，在火车东站被陌生人骗钱200块，气哭。报警之后也没有反馈，出警费可能都不止200吧（。）自己太不小心了…以后一定警惕QAQ当时照了一张骗子出示的火车票。虽然不一定是本人的…就试着看看通过一张火车票能查到什么。 身份证编码方式火车票面上有个人完整姓名和少了四位出生日期的身份证号码。身份证号码是由六位数字地址码+八位数字出生日期码+三位数字顺序码+一位校">
 <meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/hcp1.jpg?imageMogr2/thumbnail/!50p">
-<meta property="og:updated_time" content="2018-09-02T07:37:35.969Z">
+<meta property="og:updated_time" content="2018-09-19T16:29:22.282Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="通过一张火车票可以得到什么">
 <meta name="twitter:description" content="通过一张火车票可以得到什么摘要假期回学校的时候，在火车东站被陌生人骗钱200块，气哭。报警之后也没有反馈，出警费可能都不止200吧（。）自己太不小心了…以后一定警惕QAQ当时照了一张骗子出示的火车票。虽然不一定是本人的…就试着看看通过一张火车票能查到什么。 身份证编码方式火车票面上有个人完整姓名和少了四位出生日期的身份证号码。身份证号码是由六位数字地址码+八位数字出生日期码+三位数字顺序码+一位校">
@@ -111,24 +111,26 @@
 <p>3、顺序码<br>表示在同一地址码所标识的区域范围内，对同年、同月、同日出生的人编定的顺序号，顺序码的奇数分配给男性，偶数分配给女性。</p>
 <p>4、校验码</p>
 <p>计算步骤：<br>(1)十七位数字本体码加权求和公式<br>　　S = Sum(Ai * Wi), i = 0, … , 16 ，先对前17位数字的权求和<br>　　Ai:表示第i位置上的身份证号码数字值(0~9)<br>　　Wi:7 9 10 5 8 4 2 1 6 3 7 9 10 5 8 4 2 （表示第i位置上的加权因子）<br>(2)计算模<br>　　Y = mod(S, 11)<br>(3)根据模，查找得到对应的校验码<br>　　Y: 0 1 2 3 4 5 6 7 8 9 10<br>　　校验码: 1 0 X 9 8 7 6 5 4 3 2<br>python代码：</p>
-<pre><code>   #coding:utf-8
-import time
+<pre><code class="python"><span class="comment">#coding:utf-8</span>
+<span class="keyword">import</span> time
+<span class="comment">#coding:utf-8</span>
+<span class="keyword">import</span> time
 
-# 身份证号 5001071997****2042
-# 姓名 黄xx
+<span class="comment"># 身份证号 5001071997****2042</span>
+<span class="comment"># 姓名 黄滟茹</span>
 
-s=&quot;5001071997****2042&quot;
+s=<span class="string">"5001071997****2042"</span>
 
-sfz = [s.replace(&apos;****&apos;,j[4:])# 将****替换为j列表的字符串
-       for j in [time.strftime(&apos;%Y%m%d&apos;,time.localtime(i))#返回以可读字符串表示的当地时间
-                 for i in range(int(time.mktime(time.strptime(s[6:10]+&apos;0101&apos;,&apos;%Y%m%d&apos;))),
-                                int(time.mktime(time.strptime(s[6:10]+&apos;1231&apos;,&apos;%Y%m%d&apos;)))+1,3600*24)]
-       if s[-1] == &apos;10X98765432&apos;[sum(map(lambda x: int(x[0]) * x[1], zip(s.replace(&apos;****&apos;,j[4:]), [7, 
-9, 10, 5, 8, 4, 2, 1, 6, 3, 7, 9, 10, 5, 8, 4, 2]) )) % 11]]
-        #判断最后一位校验码及加权因子，验证校验码
-for i in sfz:
-  print i   
-</code></pre><p>  可以得到身份证可能的号码有：</p>
+sfz = [s.replace(<span class="string">'****'</span>,j[<span class="number">4</span>:])<span class="comment"># 将****替换为j数组的字符串</span>
+       <span class="keyword">for</span> j <span class="keyword">in</span> [time.strftime(<span class="string">'%Y%m%d'</span>,time.localtime(i))<span class="comment">#时间字符串</span>
+                 <span class="keyword">for</span> i <span class="keyword">in</span> range(int(time.mktime(time.strptime(s[<span class="number">6</span>:<span class="number">10</span>]+<span class="string">'0101'</span>,<span class="string">'%Y%m%d'</span>))),<span class="comment">#时间字符串解析为时间元组</span>
+                                int(time.mktime(time.strptime(s[<span class="number">6</span>:<span class="number">10</span>]+<span class="string">'1231'</span>,<span class="string">'%Y%m%d'</span>)))+<span class="number">1</span>,<span class="number">3600</span>*<span class="number">24</span>)]
+       <span class="keyword">if</span> s[<span class="number">-1</span>] == <span class="string">'10X98765432'</span>[sum(map(<span class="keyword">lambda</span> x: int(x[<span class="number">0</span>]) * x[<span class="number">1</span>], zip(s.replace(<span class="string">'****'</span>,j[<span class="number">4</span>:]), [<span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">6</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">4</span>, <span class="number">2</span>]) )) % <span class="number">11</span>]]
+        <span class="comment">#判断最后一位校验码</span>
+<span class="keyword">for</span> i <span class="keyword">in</span> sfz:
+  print(i)
+</code></pre>
+<p>  可以得到身份证可能的号码有：</p>
 <pre><code>500107199701022042
 500107199701102042
 500107199701292042
@@ -203,6 +205,14 @@ Process finished with exit code 0
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2018/09/19/机器学习环境初配置/" title="机器学习环境初配置">
+  <strong>上一篇：</strong><br/>
+  <span>
+  机器学习环境初配置</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2018/03/06/JSP作业的一点小坑/"  title="JSP作业的一点小坑">
@@ -255,7 +265,19 @@ Process finished with exit code 0
 			
 		
 			
+				<li><a href="/tags/KALI/" title="KALI">KALI<sup>1</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/CRYPTO/" title="CRYPTO">CRYPTO<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/PYTHON/" title="PYTHON">PYTHON<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Machine-Learning/" title="Machine Learning">Machine Learning<sup>1</sup></a></li>
 			
 		
 		</ul>
