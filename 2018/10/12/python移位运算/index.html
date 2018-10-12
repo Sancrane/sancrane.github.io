@@ -4,31 +4,26 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>记一道misc图片题 | sanc7ane&#39;blog</title>
+    <title>python移位运算 | sanc7ane&#39;blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="sanc7ane">
     
 
     
-    <meta name="description" content="记一道MISC图片题（拖延癌晚期）几个月前实验班考核的一个杂项这个题是今年实验班考核的时候一个学长出的300分的杂项，然后当时没做出来…回来之后在学长的提示下做出来了otz… 就是一道脑洞题…不过学到了一些新的工具使用。所以总结一下。 最近清理window虚拟机找到了一些做的时候的截图什么的想起来了这事。觉得有的东西还是觉得记录一下。（虽然本拖延癌晚期患者已经拖了几个月…） 原本好像是zip伪加密">
-<meta name="keywords" content="MISC">
+    <meta name="description" content="python移位运算密码算法程序设计实践选的SHA-1。在写的过程中遇到一丢丢关于python移位的问题，记录一下。 SHA-1其中第一步需要填充消息。简单阐述一下填充消息的过程：1 2 3 4 5 6 7 8 9 10 如输入消息“123”，先转成ascii码——313233，消息长度为24。 00110001 00110010 00110011 然后填充一个1占1bit，再填充447-24bi">
+<meta name="keywords" content="PYTHON">
 <meta property="og:type" content="article">
-<meta property="og:title" content="记一道misc图片题">
-<meta property="og:url" content="www.sancrane.top/2017/10/26/misc_1/index.html">
+<meta property="og:title" content="python移位运算">
+<meta property="og:url" content="www.sancrane.top/2018/10/12/python移位运算/index.html">
 <meta property="og:site_name" content="sanc7ane&#39;blog">
-<meta property="og:description" content="记一道MISC图片题（拖延癌晚期）几个月前实验班考核的一个杂项这个题是今年实验班考核的时候一个学长出的300分的杂项，然后当时没做出来…回来之后在学长的提示下做出来了otz… 就是一道脑洞题…不过学到了一些新的工具使用。所以总结一下。 最近清理window虚拟机找到了一些做的时候的截图什么的想起来了这事。觉得有的东西还是觉得记录一下。（虽然本拖延癌晚期患者已经拖了几个月…） 原本好像是zip伪加密">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image/misc_1/wm.jpg">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image/misc_1/a.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image/misc_1/2.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image/misc_1/233.jpg">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image/misc_1/5.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image/misc_1/6.png">
-<meta property="og:updated_time" content="2017-11-15T09:05:28.000Z">
+<meta property="og:description" content="python移位运算密码算法程序设计实践选的SHA-1。在写的过程中遇到一丢丢关于python移位的问题，记录一下。 SHA-1其中第一步需要填充消息。简单阐述一下填充消息的过程：1 2 3 4 5 6 7 8 9 10 如输入消息“123”，先转成ascii码——313233，消息长度为24。 00110001 00110010 00110011 然后填充一个1占1bit，再填充447-24bi">
+<meta property="og:image" content="/Users/luoying/Desktop/hexo3/source/1.jpg">
+<meta property="og:updated_time" content="2018-10-12T11:55:22.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="记一道misc图片题">
-<meta name="twitter:description" content="记一道MISC图片题（拖延癌晚期）几个月前实验班考核的一个杂项这个题是今年实验班考核的时候一个学长出的300分的杂项，然后当时没做出来…回来之后在学长的提示下做出来了otz… 就是一道脑洞题…不过学到了一些新的工具使用。所以总结一下。 最近清理window虚拟机找到了一些做的时候的截图什么的想起来了这事。觉得有的东西还是觉得记录一下。（虽然本拖延癌晚期患者已经拖了几个月…） 原本好像是zip伪加密">
-<meta name="twitter:image" content="http://oyyavfixl.bkt.clouddn.com/image/misc_1/wm.jpg">
+<meta name="twitter:title" content="python移位运算">
+<meta name="twitter:description" content="python移位运算密码算法程序设计实践选的SHA-1。在写的过程中遇到一丢丢关于python移位的问题，记录一下。 SHA-1其中第一步需要填充消息。简单阐述一下填充消息的过程：1 2 3 4 5 6 7 8 9 10 如输入消息“123”，先转成ascii码——313233，消息长度为24。 00110001 00110010 00110011 然后填充一个1占1bit，再填充447-24bi">
+<meta name="twitter:image" content="/Users/luoying/Desktop/hexo3/source/1.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="sanc7ane&#39;blog" type="application/atom+xml">
@@ -90,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/10/26/misc_1/" title="记一道misc图片题" itemprop="url">记一道misc图片题</a>
+      <a href="/2018/10/12/python移位运算/" title="python移位运算" itemprop="url">python移位运算</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="sanc7ane" target="_blank" itemprop="author">sanc7ane</a>
 		
   <p class="article-time">
-    <time datetime="2017-10-26T07:17:12.000Z" itemprop="datePublished"> Published 2017-10-26</time>
+    <time datetime="2018-10-12T11:55:22.000Z" itemprop="datePublished"> Published 2018-10-12</time>
     
   </p>
 </header>
@@ -106,38 +101,119 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#记一道MISC图片题（拖延癌晚期）"><span class="toc-number">1.</span> <span class="toc-text">记一道MISC图片题（拖延癌晚期）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个月前实验班考核的一个杂项"><span class="toc-number">1.1.</span> <span class="toc-text">几个月前实验班考核的一个杂项</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python移位运算"><span class="toc-number">1.</span> <span class="toc-text">python移位运算</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="记一道MISC图片题（拖延癌晚期）"><a href="#记一道MISC图片题（拖延癌晚期）" class="headerlink" title="记一道MISC图片题（拖延癌晚期）"></a>记一道MISC图片题（拖延癌晚期）</h1><h2 id="几个月前实验班考核的一个杂项"><a href="#几个月前实验班考核的一个杂项" class="headerlink" title="几个月前实验班考核的一个杂项"></a>几个月前实验班考核的一个杂项</h2><p>这个题是今年实验班考核的时候一个学长出的300分的杂项，然后当时没做出来…回来之后在学长的提示下做出来了otz…</p>
-<p>就是一道脑洞题…不过学到了一些新的工具使用。所以总结一下。</p>
-<p>最近清理window虚拟机找到了一些做的时候的截图什么的想起来了这事。觉得有的东西还是觉得记录一下。<del>（虽然本拖延癌晚期患者已经拖了几个月…）</del></p>
-<p>原本好像是zip伪加密方式（记不太清楚了），做出来可以得到一张jpg图。</p>
-<p>这是一张守望屁股里黑百合的jpg图。<br><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/wm.jpg" alt="wm.jpg"></p>
-<p>用16进制分析工具分析一下。<br>ffd8文件头没问题，搜索一下文件尾ffd9。</p>
-<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/a.png" alt="a.png"></p>
-<p>可以看到ffd9的文件后包含了一些其他的东西。<br>这是16进制的编码，通过在线进制转换回ascii码，得到一堆的坐标点。</p>
-<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/2.png" alt="2.png"></p>
-<p>学习到了一个工具…能将坐标点转化成图像的——gnuplot。</p>
-<p>通过命令plot直接就能将一组坐标转化为图片，真四神奇啊！</p>
-<p>但是用gnuplot跑的时候发现有个问题…它不能直接识别（x，y）这种格式的。</p>
-<p>我：“……”</p>
-<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/233.jpg" alt="233.jpg"></p>
-<p>…然后找了很久，找了个文本编辑器。editplus，轻量级，还能直接转html格式，以及统计字数什么的…非常方便，运用替换（，）为空，然后首行缩进，将文本导出为3.txt。</p>
-<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/5.png" alt="5.png"><br>这种格式）</p>
-<p>然后运行gnuplot。</p>
-<p><img src="http://oyyavfixl.bkt.clouddn.com/image/misc_1/6.png" alt="6.png"></p>
-<p>然后扫描二维码flag就出来了…</p>
-<pre><code>总结一下常用的图片文件头标识：
-JPEG/JPG - 文件头标识 (2 bytes): FF D8 FF,文件结束标识 (2 bytes): FF, D9     
-PNG - 文件头标识 (8 bytes)   89 50 4E 47 0D 0A 1A 0A    
-GIF - 文件头标识 (6 bytes)   47 49 46 38 39(37) 61                        G  I  F  8  9 (7)  a
-BMP - 文件头标识 (2 bytes)   42 4D      B  M
-以及
-gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作应该还用不上）
-</code></pre><p>这道题就是脑洞题…<br>​<br>因为以前做的图片题都是hex／binwalk＋foremost／stegsolve/（上次实验班考核还新get了一个silenteye的图片加密解密工具）</p>
-<p>不过get了新的姿势，还是记一下。<br>​<br>​<br>​    </p>
+		<h1 id="python移位运算"><a href="#python移位运算" class="headerlink" title="python移位运算"></a>python移位运算</h1><p>密码算法程序设计实践选的SHA-1。在写的过程中遇到一丢丢关于python移位的问题，记录一下。</p>
+<p>SHA-1其中第一步需要填充消息。简单阐述一下填充消息的过程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+</pre></td><td class="code"><pre><span class="line">如输入消息“123”，先转成ascii码——313233，消息长度为24。</span>
+<span class="line">00110001 00110010 00110011</span>
+<span class="line">然后填充一个1占1bit，再填充447-24bit个0。</span>
+<span class="line">10000000...00000000 </span>
+<span class="line">最后64bit加上消息长度24的二进制0001 1000</span>
+<span class="line"></span>
+<span class="line">二进制相当于是：</span>
+<span class="line">00110001 00110010 00110011 10000000...00000000 00011000</span>
+<span class="line">16进制表示</span>
+<span class="line">31323380 00000000...0018</span>
+</pre></td></tr></table></figure></p>
+<p>python部分代码块：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+<span class="line">15</span>
+</pre></td><td class="code"><pre><span class="line">    M = input()</span>
+<span class="line">    <span class="comment"># 1byte=8bit,L为M字符串长度</span></span>
+<span class="line">    L = <span class="number">8</span> * len(M)</span>
+<span class="line">    m=<span class="number">0</span></span>
+<span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> M:<span class="comment">#遍历字符串M</span></span>
+<span class="line">        m = m * (<span class="number">2</span> ** <span class="number">8</span>) + ord(ch)</span>
+<span class="line">     <span class="comment">#   print(hex(m))#此时16进制的int类型m就是原始数据</span></span>
+<span class="line"></span>
+<span class="line"><span class="comment">#补位，使明文总长度为448(mod512)位</span></span>
+<span class="line">    <span class="keyword">if</span> L &lt; <span class="number">448</span>:</span>
+<span class="line">        m = m * <span class="number">2</span> + <span class="number">1</span> <span class="comment">#补位</span></span>
+<span class="line">        <span class="comment"># 添加填充位</span></span>
+<span class="line">        m = m * <span class="number">2</span> ** (<span class="number">447</span> - L)</span>
+<span class="line">        <span class="comment"># 添加长度</span></span>
+<span class="line">        m = m * <span class="number">2</span> ** <span class="number">64</span> + L</span>
+</pre></td></tr></table></figure></p>
+<p>刚开始没懂，在学过计组的基友指点下搞懂了。<br>不只是python，对于移位运算都有：<br><strong>左移：</strong><br>运算规则：<br>按二进制形式把所有的数字向左移动对应位数，高位移出，低位补零。<br>在数字没有溢出的前提下，对于正数和负数，左移一位都相当于乘以2的1次方，左移n位就相当于乘以2的n次方。</p>
+<p>乘以2**n 相当于向左移动n位数，高位移出0，右边低位的空位补零。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+<span class="line">9</span>
+<span class="line">10</span>
+<span class="line">11</span>
+<span class="line">12</span>
+<span class="line">13</span>
+<span class="line">14</span>
+</pre></td><td class="code"><pre><span class="line">n=<span class="number">128</span></span>
+<span class="line">print(bin(n))</span>
+<span class="line"></span>
+<span class="line">n1=n*<span class="number">2</span>**<span class="number">2</span>+<span class="number">1</span><span class="comment">#1000 0000 00+0000 0001 --&gt;1000 0000 01</span></span>
+<span class="line">print(bin(n1))</span>
+<span class="line">n2=n&lt;&lt;<span class="number">2</span>+<span class="number">1</span></span>
+<span class="line">print(bin(n2))</span>
+<span class="line"></span>
+<span class="line">m=<span class="number">8</span><span class="comment">#0000 1000</span></span>
+<span class="line">print(bin(m))</span>
+<span class="line">m1=m*<span class="number">2</span>**<span class="number">2</span>+<span class="number">1</span><span class="comment">#0000 1000 00 +0001  00001000 01</span></span>
+<span class="line">print(bin(m1))</span>
+<span class="line">m2=m&lt;&lt;<span class="number">2</span>+<span class="number">1</span></span>
+<span class="line">print(bin(m2))</span>
+</pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<span class="line">2</span>
+<span class="line">3</span>
+<span class="line">4</span>
+<span class="line">5</span>
+<span class="line">6</span>
+<span class="line">7</span>
+<span class="line">8</span>
+</pre></td><td class="code"><pre><span class="line">输出结果：0b10000000</span>
+<span class="line">0b1000000001</span>
+<span class="line">0b10000000000</span>
+<span class="line">0b1000</span>
+<span class="line">0b100001</span>
+<span class="line">0b1000000</span>
+<span class="line"></span>
+<span class="line">Process finished with exit code 0</span>
+</pre></td></tr></table></figure>
+<p>同理，右移可以用&gt;&gt;或者除以2**n，相当于取商，不要余数。不过有符号区别。</p>
+<p>但同时注意运算符优先级的问题，python中，优先级从高到低分别是：<strong>，～+-（按位翻转如～1，-1），* / % //，+-（普通加减法），&lt;&lt; &gt;&gt;….<br>虽然乘以2</strong>n和&lt;&lt;效果一样，但是在运算中可能因为运算优先级的问题导致运算结果不同。</p>
+<p>这段代码意义整理一下如下：<br>L=24,m初值=为0<br>然后m左移8位，此时m不变仍然是00000000<br>再加上二进制31，此时m=00110001<br>m再次左移8位，低位补0，此时m=00110001 00000000<br>再加上二进制32，此时m=00110001 00110010<br>m再次左移8位，此时m=00110001 00110010 00000000<br>再加上二进制33，此时m=00110001 00110010 00110011<br>遍历结束。</p>
+<p>如果L&lt;448,即除了最后64bit消息长度，使得明文总长度为512bit。<br>m先左移1位，低位补0<br>m=00110001 00110010 00110011 0<br>补位一个1，m=00110001 00110010 00110011 1</p>
+<p>添加填充位：m左移448-1-L长度的值，即447-L=423长度。<br>m=00110001 00110010 00110011 1000000…00000000（1后有423个0）</p>
+<p>添加长度：m左移64bit，即<br>00110001 00110010 00110011 10000000…00000000<br>00000000 00000000 00000000 00000000 00000000<br>00000000 00000000 00000000<br>（1后有423+64个0，此时消息长度总共为24+423+1+64=512bit）<br>m加上二进制L=24，即00011000。<br>m=00110001 00110010 00110011 10000000…00000000<br>00000000 00000000 00000000 00000000 00000000<br>00000000 00000000 000011000</p>
+<p>填充消息结束。</p>
+<p>数学真的太神奇了！！（摸了摸凉凉的头顶</p>
+<p><img src="/Users/luoying/Desktop/hexo3/source/1.jpg" alt="1"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -146,7 +222,7 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/MISC/">MISC</a>
+  <span></span> <a href="/tags/PYTHON/">PYTHON</a>
   </div>
 
 </div>
@@ -155,7 +231,7 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="www.sancrane.top/2017/10/26/misc_1/" data-title="记一道misc图片题 | sanc7ane&#39;blog" data-tsina="" class="share clearfix">
+	  <div data-url="www.sancrane.top/2018/10/12/python移位运算/" data-title="python移位运算 | sanc7ane&#39;blog" data-tsina="" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -168,14 +244,14 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/11/13/一个RSA入门总结/" title="RSA入门总结">
-  <strong>上一篇：</strong><br/>
-  <span>
-  RSA入门总结</span>
+
+<div class="next">
+<a href="/2018/09/26/kali丢失模块解决/"  title="kali丢失Net::Whois::IP等模块解决">
+ <strong>下一篇：</strong><br/> 
+ <span>kali丢失Net::Whois::IP等模块解决
+</span>
 </a>
 </div>
-
 
 </nav>
 
@@ -189,7 +265,7 @@ gnuplot直接用“plot 函数/文件”可以导出图片（更复杂的操作�
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#记一道MISC图片题（拖延癌晚期）"><span class="toc-number">1.</span> <span class="toc-text">记一道MISC图片题（拖延癌晚期）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#几个月前实验班考核的一个杂项"><span class="toc-number">1.1.</span> <span class="toc-text">几个月前实验班考核的一个杂项</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#python移位运算"><span class="toc-number">1.</span> <span class="toc-text">python移位运算</span></a></li></ol>
  
   </div>
 
