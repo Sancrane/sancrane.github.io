@@ -11,22 +11,22 @@
     
 
     
-    <meta name="description" content="单纯是怕下次环境崩了又来重新搭建查百度浪费时间。dalao们可以忽视这个了（… 配置环境老师教学用的myeclipse。然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解… 用软件一直到替换文件成功都还是没问题的。然后打开，报错…好像是说因为软件环境被更改了。 尝试了很久最后还是向虚拟机势力妥协。eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也">
+    <meta name="description" content="怕下次环境崩了又来重新搭建查百度浪费时间。 配置环境老师教学用的myeclipse。然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解… 用软件一直到替换文件成功都还是没问题的。然后打开，报错…好像是说因为软件环境被更改了。 尝试了很久最后还是向虚拟机势力妥协。eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也挺快的就懒得去弄了。然后按照教程配置">
 <meta name="keywords" content="JAVA">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSP作业的一点小坑">
 <meta property="og:url" content="www.sancrane.top/2018/03/06/JSP作业的一点小坑/index.html">
 <meta property="og:site_name" content="sanc7ane&#39;blog">
-<meta property="og:description" content="单纯是怕下次环境崩了又来重新搭建查百度浪费时间。dalao们可以忽视这个了（… 配置环境老师教学用的myeclipse。然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解… 用软件一直到替换文件成功都还是没问题的。然后打开，报错…好像是说因为软件环境被更改了。 尝试了很久最后还是向虚拟机势力妥协。eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:1.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:2.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:3.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:4.png">
-<meta property="og:updated_time" content="2018-03-06T16:58:52.778Z">
+<meta property="og:description" content="怕下次环境崩了又来重新搭建查百度浪费时间。 配置环境老师教学用的myeclipse。然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解… 用软件一直到替换文件成功都还是没问题的。然后打开，报错…好像是说因为软件环境被更改了。 尝试了很久最后还是向虚拟机势力妥协。eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也挺快的就懒得去弄了。然后按照教程配置">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_1.png?q-sign-algorithm=sha1&q-ak=AKIDQn7Y3vITPUF6eheumXy26nBaPHnqoMYS&q-sign-time=1541862932;1541864732&q-key-time=1541862932;1541864732&q-header-list=&q-url-param-list=&q-signature=8b2bf336e6f945f7b30b600d8b8dd73f4e36de9c&x-cos-security-token=3186a87c98d4143ceaf8f9a2b9cdc02418b6dda510001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_2.png?q-sign-algorithm=sha1&q-ak=AKIDvFDqmuT2ATKgAlm4uCRdYcBIsilX2UGT&q-sign-time=1541862949;1541864749&q-key-time=1541862949;1541864749&q-header-list=&q-url-param-list=&q-signature=f4973638afaa79ee63cf9ae87ec130dadd5a9604&x-cos-security-token=fc15932963e5424e8703e217cea816cac7620cd110001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_3.png?q-sign-algorithm=sha1&q-ak=AKIDRSC4tQctKjBimZuXHAXfyY8GnCdkYjBO&q-sign-time=1541862967;1541864767&q-key-time=1541862967;1541864767&q-header-list=&q-url-param-list=&q-signature=b1e7b57ffc0042c29160451bd773cd1f13bc53e7&x-cos-security-token=8c038dc6a2add2df2371b7f7470bac8fe7f36e6d10001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_4.png?q-sign-algorithm=sha1&q-ak=AKIDJTEB47zY06sXjZQyLd9vFYMr4PaSdcRs&q-sign-time=1541862980;1541864780&q-key-time=1541862980;1541864780&q-header-list=&q-url-param-list=&q-signature=d6f5df79a10f98fe0d18c27afaad67880f04269e&x-cos-security-token=9cff0ae5ba0f63ea3156d0dfe521cc59fc0cb5bf10001&response-content-disposition=attachment">
+<meta property="og:updated_time" content="2018-11-10T15:16:30.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSP作业的一点小坑">
-<meta name="twitter:description" content="单纯是怕下次环境崩了又来重新搭建查百度浪费时间。dalao们可以忽视这个了（… 配置环境老师教学用的myeclipse。然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解… 用软件一直到替换文件成功都还是没问题的。然后打开，报错…好像是说因为软件环境被更改了。 尝试了很久最后还是向虚拟机势力妥协。eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也">
-<meta name="twitter:image" content="http://oyyavfixl.bkt.clouddn.com/image:jsp:1.png">
+<meta name="twitter:description" content="怕下次环境崩了又来重新搭建查百度浪费时间。 配置环境老师教学用的myeclipse。然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解… 用软件一直到替换文件成功都还是没问题的。然后打开，报错…好像是说因为软件环境被更改了。 尝试了很久最后还是向虚拟机势力妥协。eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也挺快的就懒得去弄了。然后按照教程配置">
+<meta name="twitter:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_1.png?q-sign-algorithm=sha1&q-ak=AKIDQn7Y3vITPUF6eheumXy26nBaPHnqoMYS&q-sign-time=1541862932;1541864732&q-key-time=1541862932;1541864732&q-header-list=&q-url-param-list=&q-signature=8b2bf336e6f945f7b30b600d8b8dd73f4e36de9c&x-cos-security-token=3186a87c98d4143ceaf8f9a2b9cdc02418b6dda510001&response-content-disposition=attachment">
 
     
     <link rel="alternative" href="/atom.xml" title="sanc7ane&#39;blog" type="application/atom+xml">
@@ -110,7 +110,7 @@
 		
 		</div>
 		
-		<p>单纯是怕下次环境崩了又来重新搭建查百度浪费时间。<br>dalao们可以忽视这个了（…</p>
+		<p>怕下次环境崩了又来重新搭建查百度浪费时间。</p>
 <h1 id="配置环境"><a href="#配置环境" class="headerlink" title="配置环境"></a>配置环境</h1><p>老师教学用的myeclipse。<br>然后就去找myeclipse的mac破解版，结果发现10版本的在mac上好像不能破解…</p>
 <p>用软件一直到替换文件成功都还是没问题的。<br>然后打开，报错…好像是说因为软件环境被更改了。</p>
 <p>尝试了很久最后还是向虚拟机势力妥协。<br>eclipse+tomcat本来说做备选方案的，然后发现，虚拟机做也挺快的就懒得去弄了。<br>然后按照教程配置环境，看的是</p>
@@ -118,13 +118,12 @@
 </code></pre><p>然后按照教程配置java环境，在系统变量里添加JAVA_HOME等，安装配置tomcat（关闭它自带的tomcat然后添加自己的路径），启动发布项目等…</p>
 <h1 id="404超值套餐"><a href="#404超值套餐" class="headerlink" title="404超值套餐"></a>404超值套餐</h1><h2 id="project未部署"><a href="#project未部署" class="headerlink" title="project未部署"></a>project未部署</h2><p>如果在浏览器中访问项目index.jsp显示404最普通的一个原因是project没有部署，在tomcat文件目录下的conf/server.xml<br>添加</p>
 <pre><code>Context path=&quot;/test1&quot; docBase=&quot;C:\Users\Jonah\Workspaces\MyEclipse 10\test1\WebRoot\&quot; reloadable=&quot;true&quot;/&gt;
-</code></pre><p><img src="http://oyyavfixl.bkt.clouddn.com/image:jsp:1.png" alt="1.png"><br>然后在localhost访问test1或者test1/index.jsp就可以直接看到了。<br>记得要重启一下tomcat。</p>
-<h2 id="路径错误"><a href="#路径错误" class="headerlink" title="路径错误"></a>路径错误</h2><p>在做请求与响应的时候，一开始form的action那里直接复制的java文件的绝对路径。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:jsp:2.png" alt="2.png">然后不能访问。</p>
-<p>直接把action那里改成web.xml中servlet-mapping中路径就可以了。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:jsp:3.png" alt="3.png"><br><img src="http://oyyavfixl.bkt.clouddn.com/image:jsp:4.png" alt="4.png"><br>就可以了。</p>
+</code></pre><p><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_1.png?q-sign-algorithm=sha1&amp;q-ak=AKIDQn7Y3vITPUF6eheumXy26nBaPHnqoMYS&amp;q-sign-time=1541862932;1541864732&amp;q-key-time=1541862932;1541864732&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=8b2bf336e6f945f7b30b600d8b8dd73f4e36de9c&amp;x-cos-security-token=3186a87c98d4143ceaf8f9a2b9cdc02418b6dda510001&amp;response-content-disposition=attachment" alt="1.png"><br>然后在localhost访问test1或者test1/index.jsp就可以直接看到了。<br>记得要重启一下tomcat。</p>
+<h2 id="路径错误"><a href="#路径错误" class="headerlink" title="路径错误"></a>路径错误</h2><p>在做请求与响应的时候，一开始form的action那里直接复制的java文件的绝对路径。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_2.png?q-sign-algorithm=sha1&amp;q-ak=AKIDvFDqmuT2ATKgAlm4uCRdYcBIsilX2UGT&amp;q-sign-time=1541862949;1541864749&amp;q-key-time=1541862949;1541864749&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=f4973638afaa79ee63cf9ae87ec130dadd5a9604&amp;x-cos-security-token=fc15932963e5424e8703e217cea816cac7620cd110001&amp;response-content-disposition=attachment" alt="2.png">然后不能访问。</p>
+<p>直接把action那里改成web.xml中servlet-mapping中路径就可以了。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_3.png?q-sign-algorithm=sha1&amp;q-ak=AKIDRSC4tQctKjBimZuXHAXfyY8GnCdkYjBO&amp;q-sign-time=1541862967;1541864767&amp;q-key-time=1541862967;1541864767&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=b1e7b57ffc0042c29160451bd773cd1f13bc53e7&amp;x-cos-security-token=8c038dc6a2add2df2371b7f7470bac8fe7f36e6d10001&amp;response-content-disposition=attachment" alt="3.png"><br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/jsp/image_jsp_4.png?q-sign-algorithm=sha1&amp;q-ak=AKIDJTEB47zY06sXjZQyLd9vFYMr4PaSdcRs&amp;q-sign-time=1541862980;1541864780&amp;q-key-time=1541862980;1541864780&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=d6f5df79a10f98fe0d18c27afaad67880f04269e&amp;x-cos-security-token=9cff0ae5ba0f63ea3156d0dfe521cc59fc0cb5bf10001&amp;response-content-disposition=attachment" alt="4.png"><br>就可以了。</p>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>然后…其他地方都检查没问题的时候，还是没办法跳转。<br>提交按钮可以点但是什么都没发生。<br>仔细看了一下，form那行有个警告。<br>再仔细看了下，原来把form写成了from，编译器不能识别。<br>orz<br>然后zxc这人之前还笑我来着，结果自己也把form的method部分写错了一直查不到原因hhhhhhhhhhhh</p>
-<h1 id="package包报错"><a href="#package包报错" class="headerlink" title="package包报错"></a>package包报错</h1><p>做请求与响应的时候，在src创建一个servlet的java文件，然后发现java文件的package包报错</p>
-<pre><code>multipe markers at this line the type java.objectinputstr xxx
-</code></pre><p>原因是系统用的jdk1.8的jre版本过高。<br>解决方法：</p>
+<h1 id="package包报错"><a href="#package包报错" class="headerlink" title="package包报错"></a>package包报错</h1><p>做请求与响应的时候，在src创建一个servlet的java文件，然后发现java文件的package包报错<br>​<br>    multipe markers at this line the type java.objectinputstr xxx</p>
+<p>原因是系统用的jdk1.8的jre版本过高。<br>解决方法：</p>
 <pre><code>方法1.选择Eclipse的WindowPreferencesJavaCompiler，把Compiler compliance level从1.5改成1.6；
 
 方法2.右击project选择最后一个properties选择左侧的java compiler,勾选里面的框框，把java编辑器版本都改成1.6；
@@ -216,6 +215,10 @@
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/PYTHON/" title="PYTHON">PYTHON<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MISC/" title="MISC">MISC<sup>2</sup></a></li>
 			
 		
@@ -224,15 +227,11 @@
 			
 		
 			
-				<li><a href="/tags/PYTHON/" title="PYTHON">PYTHON<sup>2</sup></a></li>
+				<li><a href="/tags/KALI/" title="KALI">KALI<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JAVA/" title="JAVA">JAVA<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/KALI/" title="KALI">KALI<sup>1</sup></a></li>
 			
 		
 			

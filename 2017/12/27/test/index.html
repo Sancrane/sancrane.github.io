@@ -18,22 +18,22 @@
 <meta property="og:url" content="www.sancrane.top/2017/12/27/test/index.html">
 <meta property="og:site_name" content="sanc7ane&#39;blog">
 <meta property="og:description" content="漏洞描述Joomla是一个自由开源的内容管理系统，在其3.4.4到3.6.3的版本中存在两个漏洞：CVE-2016-8869，CVE-2016-8870。 在这里仅分析CVE-2016-8870，利用该漏洞，攻击者可以在网站关闭注册的情况下注册用户（默认状态下用户需要用邮件激活，但需要开启注册功能才能激活）。Joomla官方已对此漏洞发布升级公告。 相关技术和工具简介   CVE:2016-887">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:1.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:2.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:3.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:4.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:5.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:6.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:7.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:8.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:9.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:10.png">
-<meta property="og:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:11.png">
-<meta property="og:updated_time" content="2018-02-28T12:56:26.393Z">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_1.png?q-sign-algorithm=sha1&q-ak=AKIDXsb7e6p2emucylyTpgKARO2N4Gklv3Gm&q-sign-time=1541862599;1541864399&q-key-time=1541862599;1541864399&q-header-list=&q-url-param-list=&q-signature=8cccb926545256876e6c8ea48226d0f9cc75902b&x-cos-security-token=202369f912fe5585661e28361f533a255ee2fd4a10001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_2.png?q-sign-algorithm=sha1&q-ak=AKIDzc86PDpmhkLaAkXAcntn43b4BVjfeBQx&q-sign-time=1541862569;1541864369&q-key-time=1541862569;1541864369&q-header-list=&q-url-param-list=&q-signature=c204a7dc007a3ec6bdaf30c9715e9a2f8d00913a&x-cos-security-token=90e3c5393377d35a79651814df36e02926c8d37910001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_3.png?q-sign-algorithm=sha1&q-ak=AKIDyvd1kkhLNsf5x1QNxfLg9yaZDJ8wbG8y&q-sign-time=1541862621;1541864421&q-key-time=1541862621;1541864421&q-header-list=&q-url-param-list=&q-signature=338b9bd902cbabcdffbfbf48a846dcb10a9a969d&x-cos-security-token=a1e8b0606985564bd3f48b3f516a666ba3a1609810001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_4.png?q-sign-algorithm=sha1&q-ak=AKIDZNYFs442FqgG76OTBMDx0o87YRRoKMEc&q-sign-time=1541862668;1541864468&q-key-time=1541862668;1541864468&q-header-list=&q-url-param-list=&q-signature=a2f60793d04b6e99a8dda9532c9c32def40f2835&x-cos-security-token=f5857f5c224bc6810a9b4a8f29f947eac5f7d51610001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_5.png?q-sign-algorithm=sha1&q-ak=AKIDZ6a3cpwh1Ln5yaFls1hVSvsXUAsedckQ&q-sign-time=1541862698;1541864498&q-key-time=1541862698;1541864498&q-header-list=&q-url-param-list=&q-signature=a6185f1204b089f78e187781e18d35956eb90902&x-cos-security-token=ee346fcadb7653ba9822d7c2b7c69422a71fd72810001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_6.png?q-sign-algorithm=sha1&q-ak=AKIDB8Oxlgz8we6JuRv4nFVYTrqgs0A01O7V&q-sign-time=1541862711;1541864511&q-key-time=1541862711;1541864511&q-header-list=&q-url-param-list=&q-signature=927f9080e1dc611fdac1e96a6d6317c136e15adf&x-cos-security-token=723e5721be7d2bb0ee64d9a667752b71968863fe10001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_7.png?q-sign-algorithm=sha1&q-ak=AKIDEA3viPHBn4RhNYdNQIs2Ac6gMNd56CQs&q-sign-time=1541862731;1541864531&q-key-time=1541862731;1541864531&q-header-list=&q-url-param-list=&q-signature=53f5775a3049df62cbf2fc3083c97be58867d194&x-cos-security-token=ca21bcdcbbf21b6de5e9fcc8abd728af3787e78910001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_8.png?q-sign-algorithm=sha1&q-ak=AKIDdNi6XNNR1Eiq1FjM6db0lc8WbLq62FNe&q-sign-time=1541862771;1541864571&q-key-time=1541862771;1541864571&q-header-list=&q-url-param-list=&q-signature=eeb3e416723f712cb63747cdf21c3732cd49b3b2&x-cos-security-token=92951ef527d5c481676d69ca80744444218cf4e010001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_9.png?q-sign-algorithm=sha1&q-ak=AKIDJn1xfyB1Ld1N5H1mur9TonczyMoNBXMT&q-sign-time=1541862794;1541864594&q-key-time=1541862794;1541864594&q-header-list=&q-url-param-list=&q-signature=10c0f015a3e3cadcbfc34fbf813d2684eecb50f9&x-cos-security-token=b9a293d497e8704556cbbcc49d903c8c71a5f12810001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_10.png?q-sign-algorithm=sha1&q-ak=AKIDzWyi2z1N7j0NsquwNLF0mzeD6wlo4Wsj&q-sign-time=1541862812;1541864612&q-key-time=1541862812;1541864612&q-header-list=&q-url-param-list=&q-signature=27ae9abef3d8ab0148acdcfbb477b2b8a43d174d&x-cos-security-token=16e2208e13c4d59829f129528f8f8979df54dd1010001&response-content-disposition=attachment">
+<meta property="og:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_11.png?q-sign-algorithm=sha1&q-ak=AKIDZEjgk5iaufXiMAreRzkYJMxeXVaHv4rC&q-sign-time=1541862834;1541864634&q-key-time=1541862834;1541864634&q-header-list=&q-url-param-list=&q-signature=c68596129ff310fd316bf676163468fd1f360ba8&x-cos-security-token=96c7b2329d07d4d42af40bd404a74378c5316af210001&response-content-disposition=attachment">
+<meta property="og:updated_time" content="2018-11-10T15:14:05.226Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Joomla未授权创建用户漏洞(CVE-2016-8870)复现">
 <meta name="twitter:description" content="漏洞描述Joomla是一个自由开源的内容管理系统，在其3.4.4到3.6.3的版本中存在两个漏洞：CVE-2016-8869，CVE-2016-8870。 在这里仅分析CVE-2016-8870，利用该漏洞，攻击者可以在网站关闭注册的情况下注册用户（默认状态下用户需要用邮件激活，但需要开启注册功能才能激活）。Joomla官方已对此漏洞发布升级公告。 相关技术和工具简介   CVE:2016-887">
-<meta name="twitter:image" content="http://oyyavfixl.bkt.clouddn.com/image:8870:1.png">
+<meta name="twitter:image" content="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_1.png?q-sign-algorithm=sha1&q-ak=AKIDXsb7e6p2emucylyTpgKARO2N4Gklv3Gm&q-sign-time=1541862599;1541864399&q-key-time=1541862599;1541864399&q-header-list=&q-url-param-list=&q-signature=8cccb926545256876e6c8ea48226d0f9cc75902b&x-cos-security-token=202369f912fe5585661e28361f533a255ee2fd4a10001&response-content-disposition=attachment">
 
     
     <link rel="alternative" href="/atom.xml" title="sanc7ane&#39;blog" type="application/atom+xml">
@@ -119,14 +119,14 @@
 		
 		<h1 id="漏洞描述"><a href="#漏洞描述" class="headerlink" title="漏洞描述"></a>漏洞描述</h1><p>Joomla是一个自由开源的内容管理系统，在其3.4.4到3.6.3的版本中存在两个漏洞：CVE-2016-8869，CVE-2016-8870。</p>
 <p>在这里仅分析CVE-2016-8870，利用该漏洞，攻击者可以在网站关闭注册的情况下注册用户（默认状态下用户需要用邮件激活，但需要开启注册功能才能激活）。Joomla官方已对此漏洞发布升级公告。</p>
-<h1 id="相关技术和工具简介"><a href="#相关技术和工具简介" class="headerlink" title="相关技术和工具简介"></a>相关技术和工具简介</h1><p>   CVE:2016-8870<br>   虚拟机：VMware Fusion<br>    主机操作系统：MAC OSX<br>    虚拟机操作系统：windows7<br>    php建站环境：<br>    phpstudy（PHP+MySQL+phpMyAdmin+ZendOptimizer）<br>    抓包工具：burpsuite<br>    测试浏览器：Mozilla Firefox</p>
+<h1 id="相关技术和工具简介"><a href="#相关技术和工具简介" class="headerlink" title="相关技术和工具简介"></a>相关技术和工具简介</h1><p>   CVE:2016-8870<br>   虚拟机：VMware Fusion<br>​    主机操作系统：MAC OSX<br>​    虚拟机操作系统：windows7<br>​    php建站环境：<br>​    phpstudy（PHP+MySQL+phpMyAdmin+ZendOptimizer）<br>​    抓包工具：burpsuite<br>​    测试浏览器：Mozilla Firefox<br>​    </p>
 <h1 id="相关工具源码下载以及Web环境搭建过程"><a href="#相关工具源码下载以及Web环境搭建过程" class="headerlink" title="相关工具源码下载以及Web环境搭建过程"></a>相关工具源码下载以及Web环境搭建过程</h1><p>通过wget命令下载github上joomla对应漏洞版本。</p>
 <pre><code>wget https://github.com/joomla/joomla-cms/releases/download/3.6.3/Joomla_3.6.3-Stable-Full_Package.tar.gz
 </code></pre><p>然后解压到对应文件夹（WWW文件夹下）</p>
 <p>在phpmyadmin里创建数据库表单。</p>
-<p><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:1.png" alt="1.jpg"></p>
+<p><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_1.png?q-sign-algorithm=sha1&amp;q-ak=AKIDXsb7e6p2emucylyTpgKARO2N4Gklv3Gm&amp;q-sign-time=1541862599;1541864399&amp;q-key-time=1541862599;1541864399&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=8cccb926545256876e6c8ea48226d0f9cc75902b&amp;x-cos-security-token=202369f912fe5585661e28361f533a255ee2fd4a10001&amp;response-content-disposition=attachment" alt="1.jpg"></p>
 <p>按照提示搭建网站。</p>
-<p><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:2.png" alt="2.jpg"><br>渗透环境搭建完毕。</p>
+<p><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_2.png?q-sign-algorithm=sha1&amp;q-ak=AKIDzc86PDpmhkLaAkXAcntn43b4BVjfeBQx&amp;q-sign-time=1541862569;1541864369&amp;q-key-time=1541862569;1541864369&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=c204a7dc007a3ec6bdaf30c9715e9a2f8d00913a&amp;x-cos-security-token=90e3c5393377d35a79651814df36e02926c8d37910001&amp;response-content-disposition=attachment" alt="2.jpg"><br>渗透环境搭建完毕。</p>
 <h1 id="相关代码分析"><a href="#相关代码分析" class="headerlink" title="相关代码分析"></a>相关代码分析</h1><h2 id="漏洞代码分析以及解决方法"><a href="#漏洞代码分析以及解决方法" class="headerlink" title="漏洞代码分析以及解决方法"></a>漏洞代码分析以及解决方法</h2><p>存在漏洞的版本中我们可以看到一个有趣的现象，即存在两个用于用户注册的方法：<br>1.位于components/com_users/controllers/registration.php中的UsersControllerRegistration::register()<br>有代码检查是否允许注册。</p>
 <pre><code>// If registration is disabled - Redirect to login page. 
 if (JComponentHelper::getParams(&apos;com_users&apos;)-&gt;get(&apos;allowUserRegistration&apos;) == 0) 
@@ -140,9 +140,9 @@ option=com_users&amp;view=login&apos;, false));
 <p>可以通过第二种注册方式绕过注册检验。</p>
 <p>修复方案：升级到joomla最新版本</p>
 <h2 id="实际情况"><a href="#实际情况" class="headerlink" title="实际情况"></a>实际情况</h2><p>实际攻击时，joomla默认是关闭注册的。<br>因为有session验证，需要更改发包的cookie和token。</p>
-<p>可通过访问index.php抓包获取cookie。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:3.png" alt="3.jpg"><br>通过看index.php源码获取token。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:4.png" alt="4.jpg"><br>构造请求包同之前的抓包内容相同，只需要更改cookie和token。</p>
-<h1 id="渗透测试过程"><a href="#渗透测试过程" class="headerlink" title="渗透测试过程"></a>渗透测试过程</h1><h2 id="通过burpsuite抓包发送注册请求"><a href="#通过burpsuite抓包发送注册请求" class="headerlink" title="通过burpsuite抓包发送注册请求"></a>通过burpsuite抓包发送注册请求</h2><p>主页默认注册功能关闭。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:5.png" alt="5.jpg"><br>进入后台，打开注册功能。<br>回到主页。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:6.png" alt="6.jpg"></p>
-<p>进入创建账号<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:7.png" alt="7.jpg"><br>打开burp抓包。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:8.png" alt="8.jpg"><br>请求包如下：</p>
+<p>可通过访问index.php抓包获取cookie。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_3.png?q-sign-algorithm=sha1&amp;q-ak=AKIDyvd1kkhLNsf5x1QNxfLg9yaZDJ8wbG8y&amp;q-sign-time=1541862621;1541864421&amp;q-key-time=1541862621;1541864421&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=338b9bd902cbabcdffbfbf48a846dcb10a9a969d&amp;x-cos-security-token=a1e8b0606985564bd3f48b3f516a666ba3a1609810001&amp;response-content-disposition=attachment" alt="3.jpg"><br>通过看index.php源码获取token。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_4.png?q-sign-algorithm=sha1&amp;q-ak=AKIDZNYFs442FqgG76OTBMDx0o87YRRoKMEc&amp;q-sign-time=1541862668;1541864468&amp;q-key-time=1541862668;1541864468&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=a2f60793d04b6e99a8dda9532c9c32def40f2835&amp;x-cos-security-token=f5857f5c224bc6810a9b4a8f29f947eac5f7d51610001&amp;response-content-disposition=attachment" alt="4.jpg"><br>构造请求包同之前的抓包内容相同，只需要更改cookie和token。</p>
+<h1 id="渗透测试过程"><a href="#渗透测试过程" class="headerlink" title="渗透测试过程"></a>渗透测试过程</h1><h2 id="通过burpsuite抓包发送注册请求"><a href="#通过burpsuite抓包发送注册请求" class="headerlink" title="通过burpsuite抓包发送注册请求"></a>通过burpsuite抓包发送注册请求</h2><p>主页默认注册功能关闭。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_5.png?q-sign-algorithm=sha1&amp;q-ak=AKIDZ6a3cpwh1Ln5yaFls1hVSvsXUAsedckQ&amp;q-sign-time=1541862698;1541864498&amp;q-key-time=1541862698;1541864498&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=a6185f1204b089f78e187781e18d35956eb90902&amp;x-cos-security-token=ee346fcadb7653ba9822d7c2b7c69422a71fd72810001&amp;response-content-disposition=attachment" alt="5.jpg"><br>进入后台，打开注册功能。<br>回到主页。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_6.png?q-sign-algorithm=sha1&amp;q-ak=AKIDB8Oxlgz8we6JuRv4nFVYTrqgs0A01O7V&amp;q-sign-time=1541862711;1541864511&amp;q-key-time=1541862711;1541864511&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=927f9080e1dc611fdac1e96a6d6317c136e15adf&amp;x-cos-security-token=723e5721be7d2bb0ee64d9a667752b71968863fe10001&amp;response-content-disposition=attachment" alt="6.jpg"></p>
+<p>进入创建账号<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_7.png?q-sign-algorithm=sha1&amp;q-ak=AKIDEA3viPHBn4RhNYdNQIs2Ac6gMNd56CQs&amp;q-sign-time=1541862731;1541864531&amp;q-key-time=1541862731;1541864531&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=53f5775a3049df62cbf2fc3083c97be58867d194&amp;x-cos-security-token=ca21bcdcbbf21b6de5e9fcc8abd728af3787e78910001&amp;response-content-disposition=attachment" alt="7.jpg"><br>打开burp抓包。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_8.png?q-sign-algorithm=sha1&amp;q-ak=AKIDdNi6XNNR1Eiq1FjM6db0lc8WbLq62FNe&amp;q-sign-time=1541862771;1541864571&amp;q-key-time=1541862771;1541864571&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=eeb3e416723f712cb63747cdf21c3732cd49b3b2&amp;x-cos-security-token=92951ef527d5c481676d69ca80744444218cf4e010001&amp;response-content-disposition=attachment" alt="8.jpg"><br>请求包如下：<br>​      </p>
 <pre><code>POST /Joomla_3.6.3-Stable-Full_Package/index.php/component/users/?task=registration.register HTTP/1.1
 Host: localhost
 User-Agent: Mozilla/5.0 (Windows NT 6.1; rv:57.0) Gecko/20100101 Firefox/57.0
@@ -193,7 +193,7 @@ Content-Disposition: form-data; name=&quot;6daaa4fabc7a555dc064a9b67d2701f4&quot
 
 1
 -----------------------------191272338010927--
-</code></pre><p>在后台关闭注册。可以看到首页并没有注册选项。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:9.png" alt="9.jpg"><br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:10.png" alt="10.jpg"><br>注册功能关闭了。<br>此时发请求包并不能注册。<br>在burp里将将请求包进行如下修改即可使用存在漏洞的函数进行注册：</p>
+</code></pre><p>在后台关闭注册。可以看到首页并没有注册选项。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_9.png?q-sign-algorithm=sha1&amp;q-ak=AKIDJn1xfyB1Ld1N5H1mur9TonczyMoNBXMT&amp;q-sign-time=1541862794;1541864594&amp;q-key-time=1541862794;1541864594&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=10c0f015a3e3cadcbfc34fbf813d2684eecb50f9&amp;x-cos-security-token=b9a293d497e8704556cbbcc49d903c8c71a5f12810001&amp;response-content-disposition=attachment" alt="9.jpg"><br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_10.png?q-sign-algorithm=sha1&amp;q-ak=AKIDzWyi2z1N7j0NsquwNLF0mzeD6wlo4Wsj&amp;q-sign-time=1541862812;1541864612&amp;q-key-time=1541862812;1541864612&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=27ae9abef3d8ab0148acdcfbb477b2b8a43d174d&amp;x-cos-security-token=16e2208e13c4d59829f129528f8f8979df54dd1010001&amp;response-content-disposition=attachment" alt="10.jpg"><br>注册功能关闭了。<br>此时发请求包并不能注册。<br>在burp里将将请求包进行如下修改即可使用存在漏洞的函数进行注册：</p>
 <pre><code>registration.register -&gt; user.register
 jform[*] -&gt; user[*]
 </code></pre><p>更改后的请求包：</p>
@@ -247,7 +247,7 @@ Content-Disposition: form-data; name=&quot;6daaa4fabc7a555dc064a9b67d2701f4&quot
 
 1
 -----------------------------191272338010927--
-</code></pre><p>发包，然后后台可以看到在关闭注册的情况下，注册成功。<br><img src="http://oyyavfixl.bkt.clouddn.com/image:8870:11.png" alt="11.jpg"></p>
+</code></pre><p>发包，然后后台可以看到在关闭注册的情况下，注册成功。<br><img src="https://hexo-1255333859.cos.ap-chengdu.myqcloud.com/cve-2016-8870/image_8870_11.png?q-sign-algorithm=sha1&amp;q-ak=AKIDZEjgk5iaufXiMAreRzkYJMxeXVaHv4rC&amp;q-sign-time=1541862834;1541864634&amp;q-key-time=1541862834;1541864634&amp;q-header-list=&amp;q-url-param-list=&amp;q-signature=c68596129ff310fd316bf676163468fd1f360ba8&amp;x-cos-security-token=96c7b2329d07d4d42af40bd404a74378c5316af210001&amp;response-content-disposition=attachment" alt="11.jpg"></p>
 <p>漏洞复现完成。</p>
 <h2 id="补丁修复"><a href="#补丁修复" class="headerlink" title="补丁修复"></a>补丁修复</h2><p>官方删除了UsersControllerUser::register()的注册方法。</p>
   
@@ -328,6 +328,10 @@ Content-Disposition: form-data; name=&quot;6daaa4fabc7a555dc064a9b67d2701f4&quot
 		<ul class="clearfix">
 		
 			
+				<li><a href="/tags/PYTHON/" title="PYTHON">PYTHON<sup>2</sup></a></li>
+			
+		
+			
 				<li><a href="/tags/MISC/" title="MISC">MISC<sup>2</sup></a></li>
 			
 		
@@ -336,15 +340,11 @@ Content-Disposition: form-data; name=&quot;6daaa4fabc7a555dc064a9b67d2701f4&quot
 			
 		
 			
-				<li><a href="/tags/PYTHON/" title="PYTHON">PYTHON<sup>2</sup></a></li>
+				<li><a href="/tags/KALI/" title="KALI">KALI<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/JAVA/" title="JAVA">JAVA<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/KALI/" title="KALI">KALI<sup>1</sup></a></li>
 			
 		
 			
