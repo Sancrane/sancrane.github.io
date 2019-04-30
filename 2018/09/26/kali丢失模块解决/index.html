@@ -18,7 +18,7 @@
 <meta property="og:url" content="www.sancrane.top/2018/09/26/kali丢失模块解决/index.html">
 <meta property="og:site_name" content="sanc7ane&#39;blog">
 <meta property="og:description" content="kali丢失Net::Whois::IP等模块解决做网络攻防作业，使用dnsenum进行查询dns数据信息。在使用部分参数的时候出现报错。比如enum，是–threads 5 -s 15 -w的快捷方式，即除了默认的A，NS和MX查询外，使用5个线程，将从Google抓取的子域的最大数量（默认值为15），以及在c类网络范围上执行whois查询。 1 2 3 4 5 6 root@kali:~# d">
-<meta property="og:updated_time" content="2018-09-26T06:41:57.331Z">
+<meta property="og:updated_time" content="2019-02-24T06:03:37.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kali丢失Net::Whois::IP等模块解决">
 <meta name="twitter:description" content="kali丢失Net::Whois::IP等模块解决做网络攻防作业，使用dnsenum进行查询dns数据信息。在使用部分参数的时候出现报错。比如enum，是–threads 5 -s 15 -w的快捷方式，即除了默认的A，NS和MX查询外，使用5个线程，将从Google抓取的子域的最大数量（默认值为15），以及在c类网络范围上执行whois查询。 1 2 3 4 5 6 root@kali:~# d">
@@ -119,9 +119,10 @@
 <span class="line">Warning: can&apos;t load Net::Whois::IP module, whois queries disabled.</span>
 <span class="line">Warning: can&apos;t load WWW::Mechanize module, Google scraping desabled.</span>
 </pre></td></tr></table></figure>
-<p>查了一些解决办法，比如通过运行perl -MCPAN -e shell然后在提示符下安装模块：install Net::Whois::IP。然后找不到该资源包失败。<br>还尝试更新源后下载，也不能解决。<br>最后的解决办法是：<br>先谷歌到该模块作者，然后记住该作者名字。<br>在<a href="https://cpan.metacpan.org/authors/id/" target="_blank" rel="noopener">https://cpan.metacpan.org/authors/id/</a><br>找到该作者名字首字母。比如<br>Net::Whois::IP的作者页<br><a href="http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/" target="_blank" rel="noopener">http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/</a><br>然后找到Net::Whois::IP的安装包通过wget下载。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
+<p>查了一些解决办法，比如通过运行perl -MCPAN -e shell然后在提示符下安装模块：install Net::Whois::IP。然后找不到该资源包失败。<br>还尝试更新源后下载，也不能解决。<br>最后的解决办法是：<br>先谷歌到该模块作者，然后记住该作者名字。<br>在<a href="https://cpan.metacpan.org/authors/id/" target="_blank" rel="noopener">https://cpan.metacpan.org/authors/id/</a><br>找到该作者名字首字母。比如<br>Net::Whois::IP的作者页<br><a href="http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/" target="_blank" rel="noopener">http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/</a><br>然后找到Net::Whois::IP的安装包通过wget下载。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">root@kali:~# wget http://search.cpan.org/CPAN/authors/id/B/BS/BSCHMITZ/Net-Whois-IP-1.04.tar.gz</span>
-</pre></td></tr></table></figure></p>
+</pre></td></tr></table></figure>
 <p>然后解压<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span>
 </pre></td><td class="code"><pre><span class="line">root@kali:~# tar xzvf Net-Whois-IP-1.04.tar.gz</span>
 </pre></td></tr></table></figure></p>
@@ -229,11 +230,11 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/PYTHON/" title="PYTHON">PYTHON<sup>2</sup></a></li>
+				<li><a href="/tags/MISC/" title="MISC">MISC<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/MISC/" title="MISC">MISC<sup>2</sup></a></li>
+				<li><a href="/tags/PYTHON/" title="PYTHON">PYTHON<sup>2</sup></a></li>
 			
 		
 			
@@ -245,15 +246,15 @@
 			
 		
 			
-				<li><a href="/tags/JAVA/" title="JAVA">JAVA<sup>1</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/CRYPTO/" title="CRYPTO">CRYPTO<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/Machine-Learning/" title="Machine Learning">Machine Learning<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/JAVA/" title="JAVA">JAVA<sup>1</sup></a></li>
 			
 		
 		</ul>
@@ -364,7 +365,7 @@
 		
 
 		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2018 
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2019 
 		
 		<a href="/about" target="_blank" title="sanc7ane">sanc7ane</a>
 		
